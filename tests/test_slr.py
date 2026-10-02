@@ -77,3 +77,24 @@ def test_extract_qa(monkeypatch):
     assert all(a.values())
     s = score_qa("full text ...", [{"id": "qa1", "question": "Q?", "weight": 2}])
     assert s == 2
+
+
+class _FakeLLM_Gaps:
+    def chat(self, messages):
+        return ("## Research Gaps\n\n| Gap | Bukti | Kandidat RQ |\n"
+                "|---|---|---|\n"
+                "| metode X jenuh di trust | a.pdf, b.pdf | RQ baru: di luar trust? |\n"), "fake"
+
+
+def test_gaps_format(monkeypatch):
+    from gaps import analyze_gaps
+    monkeypatch.setattr("gaps.llm", _FakeLLM_Gaps())
+    rows = [
+        {"file": "a.pdf", "title": "T1", "answers_rq1": "metode X untuk trust",
+         "answers_rq2": "akurasi 90%", "qa_score": "3"},
+        {"file": "b.pdf", "title": "T2", "answers_rq1": "metode X untuk trust",
+         "answers_rq2": "akurasi 85%", "qa_score": "2"},
+    ]
+    md = analyze_gaps(rows, ["RQ1: metode apa?", "RQ2: hasil?"])
+    assert "## Research Gaps" in md
+    assert "a.pdf" in md or "metode X" in md
