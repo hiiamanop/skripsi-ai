@@ -58,3 +58,22 @@ def test_report_counts():
     assert c["by_source"]["ieee"] == 2
     assert c["excluded_title_abstract"] == 1
     assert c["included"] == 1
+
+
+class _FakeLLM_QA:
+    def chat(self, messages):
+        import json as _j
+        prompt = messages[0]["content"]
+        if prompt.startswith("QA:"):
+            return _j.dumps({"qa1": 1}), "fake"
+        return _j.dumps({"answers_rq1": "jawaban 1", "answers_rq2": "jawaban 2"}), "fake"
+
+
+def test_extract_qa(monkeypatch):
+    from extract import answer_rq, score_qa
+    monkeypatch.setattr("extract.llm", _FakeLLM_QA())
+    a = answer_rq("full text ...", ["RQ1?", "RQ2?"])
+    assert set(a) == {"answers_rq1", "answers_rq2"}
+    assert all(a.values())
+    s = score_qa("full text ...", [{"id": "qa1", "question": "Q?", "weight": 2}])
+    assert s == 2
