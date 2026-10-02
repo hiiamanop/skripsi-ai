@@ -11,6 +11,8 @@ def detect_source(url_or_query):
         return "ieee"
     if "scopus" in netloc:
         return "scopus"
+    if "openalex" in netloc:
+        return "openalex"
     return "other"
 
 
