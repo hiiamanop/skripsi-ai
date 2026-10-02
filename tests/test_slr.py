@@ -31,3 +31,17 @@ def test_detect_source():
     assert detect_source("https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=x") == "ieee"
     assert detect_source("https://www.scopus.com/results/results.uri?sort=plf-f") == "scopus"
     assert detect_source("some raw query string") == "other"
+
+
+class _FakeLLM:
+    def chat(self, messages):
+        import json as _j
+        return _j.dumps({"score": 90, "reason": "relevan"}), "fake"
+
+
+def test_screen_scores(monkeypatch):
+    from screen import score_paper
+    monkeypatch.setattr("screen.llm", _FakeLLM())
+    s = score_paper("Test Title", "Test abstract about trust.", ["RQ1?"], ["English"], ["Non-English"])
+    assert 0 <= s["score"] <= 100
+    assert s["reason"]
