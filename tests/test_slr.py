@@ -3,6 +3,8 @@ import shutil
 import subprocess
 import sys
 
+from grabbers import detect_source
+
 PROJ = "/tmp/slr_test_proj"
 
 
@@ -23,3 +25,9 @@ def test_init_creates_protocol():
     assert p["exclusion"] == []
     assert isinstance(p["qa_checklist"], list)
     shutil.rmtree(PROJ, ignore_errors=True)
+
+
+def test_detect_source():
+    assert detect_source("https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=x") == "ieee"
+    assert detect_source("https://www.scopus.com/results/results.uri?sort=plf-f") == "scopus"
+    assert detect_source("some raw query string") == "other"
