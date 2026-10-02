@@ -45,3 +45,16 @@ def test_screen_scores(monkeypatch):
     s = score_paper("Test Title", "Test abstract about trust.", ["RQ1?"], ["English"], ["Non-English"])
     assert 0 <= s["score"] <= 100
     assert s["reason"]
+
+
+def test_report_counts():
+    from report import prisma_counts
+    rows = [
+        {"file": "a.pdf", "source": "ieee", "phase": "title_abstract", "decision": "include", "reason": "", "qa_score": ""},
+        {"file": "b.pdf", "source": "ieee", "phase": "title_abstract", "decision": "exclude", "reason": "off-topic", "qa_score": ""},
+        {"file": "a.pdf", "source": "ieee", "phase": "fulltext", "decision": "include", "reason": "", "qa_score": "3"},
+    ]
+    c = prisma_counts(rows)
+    assert c["by_source"]["ieee"] == 2
+    assert c["excluded_title_abstract"] == 1
+    assert c["included"] == 1
