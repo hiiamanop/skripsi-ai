@@ -26,7 +26,9 @@ def build_params(arg):
         p = {k: v[0] for k, v in qs.items()}
     else:
         p = {"search": arg}
-    p.setdefault("filter", "is_oa:true")
+    f = p.get("filter", "")
+    if "is_oa" not in f:
+        p["filter"] = f + ",is_oa:true" if f else "is_oa:true"
     p["per-page"] = 100
     return p
 
