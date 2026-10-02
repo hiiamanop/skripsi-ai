@@ -43,7 +43,7 @@ def score_qa(text, checklist):
 def main():
     a = argparse.ArgumentParser()
     a.add_argument("project")
-    a.add_argument("-n", type=int, default=0)
+    a.add_argument("-n", "--max", type=int, default=0)
     a.add_argument("--redo", action="store_true")
     a = a.parse_args()
 

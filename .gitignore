@@ -3,3 +3,7 @@ chroma_db/
 .env
 __pycache__/
 .venv/
+slr/
+grab.log
+grab.pid
+tests/__pycache__/
