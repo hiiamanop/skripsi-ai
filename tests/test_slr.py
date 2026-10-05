@@ -27,6 +27,19 @@ def test_init_creates_protocol():
     shutil.rmtree(PROJ, ignore_errors=True)
 
 
+def test_bibtex_helpers():
+    from bibtex import keywords, key
+    assert keywords("2021_9395589_A Secure Trust Method for Multi-Agent System in Smart Grids Using Blockchain.pdf") == "secure trust method smart grids blockchain"
+    assert key("Rabiya Khalid and Omaji Samuel", "2021", "A Secure Trust") == "Khalid2021A"
+
+
+def test_crossref_lookup():
+    import crossref
+    m = crossref.lookup("secure trust method smart grids blockchain", 2021)
+    assert m and m["doi"] == "10.1109/access.2021.3071431"
+    assert crossref.lookup("judul tak ada xyzabc", 2021) is None
+
+
 def test_detect_source():
     assert detect_source("https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=x") == "ieee"
     assert detect_source("https://www.scopus.com/results/results.uri?sort=plf-f") == "scopus"
