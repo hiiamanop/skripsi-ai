@@ -1,0 +1,4 @@
+String A v2 yang benar-benar dieksekusi (C2X+C3X, 8 wildcard):
+(agentic OR "LLM agent*" OR "LLM-based agent*" OR "language model agent*" OR "multi-agent LLM") AND (orchestrat* OR coordinat* OR "multi-agent" OR "agentic AI") AND (trust OR calibrat* OR confidence OR conflict OR "value of information" OR cost OR latency OR "policy enforcement" OR governance OR robustness OR "human-in-the-loop" OR escalat* OR autonom*)
+Wildcard (*): agent*, agent*, agent*, LLM, orchestrat*, coordinat*, calibrat*, escalat* = 8.
+Filter: openAccess=true, refinements=[ContentType:Journals]. total_records=133, retrieved=151 file (lihat penjelasan di bawah).

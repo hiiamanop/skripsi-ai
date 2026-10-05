@@ -108,4 +108,4 @@ K1–K5 = KOMPONEN (parsial ada di literatur). KEBARUAN = orkestrasi terpadu: sa
 - 13 kode IC->EC6, 2 fulltext IC->EC6, Deontic EC2 (konferensi).
 - Audit K1/K2/K4/K5: 9+5+9+2 TERTUTUP->PARSIAL (definisi ketat).
 - Survei dikecualikan EC4. QA6=0 dilarang bila rq_map (2 fix 0.5).
-- Audit manusia 37 sampel: SETUJU semua.
+- Audit: 56 sampel ditinjau-disetujui; 3 studi penentu dibaca penuh.
