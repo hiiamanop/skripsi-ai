@@ -1,0 +1,57 @@
+id,doi,phase,ai_decision,ai_criterion,human_decision,human_note
+2025_10912445_LLM-Driven Social Influence for Cooperative Behavior in Multi-Agent Systems.pdf,10.1109/ACCESS.2025.3548451,title_abstract,EXCLUDE,EC6,SETUJU,audit 2026-10-05
+2025_10964222_EcoptiAI E-Commerce Process Optimization and Operational Cost Minimization Through Task Automation U.pdf,10.1109/ACCESS.2025.3560549,title_abstract,EXCLUDE,EC6,SETUJU,audit 2026-10-05
+2025_11050404_Toward Data Systems That Are Business Semantic Centric and AI Agents Assisted.pdf,10.1109/ACCESS.2025.3583260,title_abstract,EXCLUDE,EC1,SETUJU,audit 2026-10-05
+2025_11078243_DAWN Designing Distributed Agents in a Worldwide Network.pdf,10.1109/ACCESS.2025.3588425,title_abstract,INCLUDE,IC4,SETUJU,audit 2026-10-05
+2025_11081880_Security of Internet of Agents Attacks and Countermeasures.pdf,10.1109/OJCS.2025.3589638,title_abstract,INCLUDE,IC4,SETUJU,audit 2026-10-05
+2025_11129017_ADAM-1 An AI Reasoning and Bioinformatics Model for Alzheimers Disease Detection and Microbiome-Clin.pdf,10.1109/ACCESS.2025.3599857,title_abstract,EXCLUDE,EC6,SETUJU,audit 2026-10-05
+2025_11131150_Intent-Based Infrastructure and Service Orchestration Using Agentic-AI.pdf,10.1109/OJCOMS.2025.3600706,title_abstract,EXCLUDE,EC6,SETUJU,audit 2026-10-05
+2025_11168174_RALLY Role-Adaptive LLM-Driven Yoked Navigation for Agentic UAV Swarms.pdf,10.1109/OJVT.2025.3610852,title_abstract,EXCLUDE,EC6,SETUJU,audit 2026-10-05
+2025_11168264_UnifiedKP A Unified Network Knowledge Plane for Large Model-Enabled 6G Networks.pdf,10.1109/ACCESS.2025.3610890,title_abstract,EXCLUDE,EC6,SETUJU,audit 2026-10-05
+2025_11176078_An Adaptive Multi-Agent LLM-Based Clinical Decision Support System Integrating Biomedical RAG and We.pdf,10.1109/ACCESS.2025.3613340,title_abstract,INCLUDE,"IC1,IC2,IC4",SETUJU,audit 2026-10-05
+2025_11293797_NetIntent Leveraging Large Language Models for End-to-End Intent-Based SDN Automation.pdf,10.1109/OJCOMS.2025.3642642,title_abstract,INCLUDE,IC4,SETUJU,audit 2026-10-05
+2026_11219066_Side-Channel Attacks on Protected Cryptographic Devices in Agentic AI A Wavelet Scattering-Based Mul.pdf,,title_abstract,EXCLUDE,EC6,SETUJU,audit 2026-10-05
+2026_11316643_Agentic TinyML for Intent-Aware Handover in 6G Wireless Networks.pdf,,title_abstract,EXCLUDE,EC1,SETUJU,audit 2026-10-05
+2026_11328752_Redefining Elderly Care With Agentic AI Challenges and Opportunities.pdf,10.1109/OJCS.2026.3650842,title_abstract,EXCLUDE,EC6,SETUJU,audit 2026-10-05
+2026_11329025_Agentic AI in Healthcare and Medicine A Seven-Dimensional Taxonomy for Empirical Evaluation of LLM-B.pdf,10.1109/ACCESS.2026.3651218,title_abstract,INCLUDE,IC4,SETUJU,audit 2026-10-05
+2026_11428168_AGORA Agentic Green Orchestration Architecture for Beyond 5G Networks.pdf,10.1109/ACCESS.2026.3672699,title_abstract,INCLUDE,IC4,SETUJU,audit 2026-10-05
+2026_11431193_Beyond Connectivity via Artificial Intelligence Agents Enabling Perceptive Adaptive and Anticipatory.pdf,10.1109/ACCESS.2026.3667803,title_abstract,INCLUDE,IC4,SETUJU,audit 2026-10-05
+2026_11447227_Agentic AI Security Threats Defenses Evaluation and Open Challenges.pdf,10.1109/ACCESS.2026.3675554,title_abstract,INCLUDE,IC4,SETUJU,audit 2026-10-05
+2026_11448978_Resilience-Oriented Lifecycle Automation of Structural RC Elements via a Multi-Agent System Framewor.pdf,,title_abstract,EXCLUDE,EC6,SETUJU,audit 2026-10-05
+2026_11457580_Knowledge Tracing Models in Educational Data Mining Historical Evolution Categorization and Empirica.pdf,10.1109/ACCESS.2026.3678846,title_abstract,EXCLUDE,EC6,SETUJU,audit 2026-10-05
+2026_11498313_CowNet-AI A Multi-Agent Decision Support Framework for Social NetworkDriven Welfare Insights in Dair.pdf,10.1109/ACCESS.2026.3688544,title_abstract,INCLUDE,"IC1,IC2,IC3,IC4",SETUJU,audit 2026-10-05
+2026_11526796_ACT A Conceptual Framework for Understanding and Controlling Trustworthiness in Controllable AI.pdf,10.1109/ACCESS.2026.3694817,title_abstract,INCLUDE,IC4,SETUJU,audit 2026-10-05
+2026_11526952_Where Shall we Meet Group Meeting Location Recommendation via Preference-Mobility Reasoning with MEE.pdf,10.23919/CHAIN.2026.000007,title_abstract,EXCLUDE,EC6,SETUJU,audit 2026-10-05
+2026_11540994_From LLM Reasoning to Autonomous AI Agents A Comprehensive Review.pdf,10.1109/ACCESS.2026.3698694,title_abstract,INCLUDE,IC4,SETUJU,audit 2026-10-05
+2026_11559625_AgenticNav A Hierarchical Multi-Agentic System for LLM-Driven Autonomous Problem-Solving in Robotics.pdf,10.1109/ACCESS.2026.3703330,title_abstract,EXCLUDE,EC6,SETUJU,audit 2026-10-05
+2026_11575272_Digital Autonomation of Residential Construction Project Lifecycle Management via Agentic-AI-Driven .pdf,,title_abstract,EXCLUDE,EC6,SETUJU,audit 2026-10-05
+2026_11598874_ASPIRE An Agentic Decision System for Early Equipment Failure Prediction and Intervention in Industr.pdf,10.1109/ACCESS.2026.3711010,title_abstract,INCLUDE,IC4,SETUJU,audit 2026-10-05
+2026_11599534_Multi-Agent Software Development for Automotive Model-Based Graphical Programming.pdf,10.1109/ACCESS.2026.3711515,title_abstract,INCLUDE,"IC1,IC2,IC3,IC4",SETUJU,audit 2026-10-05
+2026_11614388_Large Language Model Agents in Dynamic Mine Planning Challenges Opportunities and Future Directions.pdf,10.1109/ACCESS.2026.3714775,title_abstract,EXCLUDE,EC6,SETUJU,audit 2026-10-05
+2026_11657394_AoI-Aware Agentic Federated Mixture-of-Digital-Twin Experts for 6G Vehicular Edge Intelligence.pdf,10.1109/OJCOMS.2026.3724461,title_abstract,EXCLUDE,EC1,SETUJU,audit 2026-10-05
+2026_11658683_Persistent Goal-Tracking and Instruction-Driven Reasoning in Sequential Conversation QA.pdf,10.1109/ACCESS.2026.3725149,title_abstract,INCLUDE,IC1+IC2+IC3+IC4,SETUJU,audit 2026-10-05
+2026_11661294_Agentic AI in Healthcare Current Applications Challenges and Future Directions.pdf,10.1109/ACCESS.2026.3725858,title_abstract,INCLUDE,IC1+IC4,SETUJU,audit 2026-10-05
+2026_11666482_Evil-AI Benchmark An Evaluation Framework for Adversarial Security Assessment of LLM Agents in Smart.pdf,10.1109/ACCESS.2026.3727159,title_abstract,INCLUDE,IC1,SETUJU,audit 2026-10-05
+2026_11670182_Deontic Policies for Runtime Governance of Agentic AI Systems.pdf,,title_abstract,INCLUDE,"IC1,IC2,IC4",SETUJU,audit 2026-10-05
+2026_11715712_Profiling Massive Multi-Agent System for 6G.pdf,,title_abstract,EXCLUDE,EC6,SETUJU,audit 2026-10-05
+2025_11078243_DAWN Designing Distributed Agents in a Worldwide Network.pdf,10.1109/ACCESS.2025.3588425,fulltext,INCLUDE,IC4,SETUJU,audit 2026-10-05
+2025_11081880_Security of Internet of Agents Attacks and Countermeasures.pdf,10.1109/OJCS.2025.3589638,fulltext,INCLUDE,IC4,SETUJU,audit 2026-10-05
+2025_11176078_An Adaptive Multi-Agent LLM-Based Clinical Decision Support System Integrating Biomedical RAG and We.pdf,10.1109/ACCESS.2025.3613340,fulltext,INCLUDE,IC4,SETUJU,audit 2026-10-05
+2025_11293797_NetIntent Leveraging Large Language Models for End-to-End Intent-Based SDN Automation.pdf,10.1109/OJCOMS.2025.3642642,fulltext,EXCLUDE,EC6,SETUJU,audit 2026-10-05
+2026_11329025_Agentic AI in Healthcare and Medicine A Seven-Dimensional Taxonomy for Empirical Evaluation of LLM-B.pdf,10.1109/ACCESS.2026.3651218,fulltext,EXCLUDE,EC6,SETUJU,audit 2026-10-05
+2026_11428168_AGORA Agentic Green Orchestration Architecture for Beyond 5G Networks.pdf,10.1109/ACCESS.2026.3672699,fulltext,INCLUDE,IC4,SETUJU,audit 2026-10-05
+2026_11431193_Beyond Connectivity via Artificial Intelligence Agents Enabling Perceptive Adaptive and Anticipatory.pdf,10.1109/ACCESS.2026.3667803,fulltext,INCLUDE,IC4,SETUJU,audit 2026-10-05
+2026_11447227_Agentic AI Security Threats Defenses Evaluation and Open Challenges.pdf,10.1109/ACCESS.2026.3675554,fulltext,INCLUDE,IC4,SETUJU,audit 2026-10-05
+2026_11498313_CowNet-AI A Multi-Agent Decision Support Framework for Social NetworkDriven Welfare Insights in Dair.pdf,10.1109/ACCESS.2026.3688544,fulltext,EXCLUDE,EC6,SETUJU,audit 2026-10-05
+2026_11526796_ACT A Conceptual Framework for Understanding and Controlling Trustworthiness in Controllable AI.pdf,10.1109/ACCESS.2026.3694817,fulltext,EXCLUDE,EC6,SETUJU,audit 2026-10-05
+2026_11540994_From LLM Reasoning to Autonomous AI Agents A Comprehensive Review.pdf,10.1109/ACCESS.2026.3698694,fulltext,EXCLUDE,EC6,SETUJU,audit 2026-10-05
+2026_11598874_ASPIRE An Agentic Decision System for Early Equipment Failure Prediction and Intervention in Industr.pdf,10.1109/ACCESS.2026.3711010,fulltext,INCLUDE,IC4,SETUJU,audit 2026-10-05
+2026_11599534_Multi-Agent Software Development for Automotive Model-Based Graphical Programming.pdf,10.1109/ACCESS.2026.3711515,fulltext,INCLUDE,IC1+IC2+IC3+IC4,SETUJU,audit 2026-10-05
+2026_11658683_Persistent Goal-Tracking and Instruction-Driven Reasoning in Sequential Conversation QA.pdf,10.1109/ACCESS.2026.3725149,fulltext,EXCLUDE,EC6,SETUJU,audit 2026-10-05
+2026_11661294_Agentic AI in Healthcare Current Applications Challenges and Future Directions.pdf,10.1109/ACCESS.2026.3725858,fulltext,EXCLUDE,EC6,SETUJU,audit 2026-10-05
+2026_11666482_Evil-AI Benchmark An Evaluation Framework for Adversarial Security Assessment of LLM Agents in Smart.pdf,10.1109/ACCESS.2026.3727159,fulltext,EXCLUDE,EC6,SETUJU,audit 2026-10-05
+2026_11670182_Deontic Policies for Runtime Governance of Agentic AI Systems.pdf,,fulltext,EXCLUDE,EC2,SETUJU,audit 2026-10-05
+2022_9733331_Contextual Text Analytics Framework for Citizen Report Classification A Case Study Using the Indones.pdf,10.1109/ACCESS.2022.3158940,title_abstract,INCLUDE,IC4,SETUJU,audit 2026-10-05
+2024_10511080_Core-View Contrastive Learning Network for Building Lightweight Cross-Domain Consultation System.pdf,10.1109/ACCESS.2024.3395330,title_abstract,INCLUDE,IC1,SETUJU,audit 2026-10-05
+2022_9733331_Contextual Text Analytics Framework for Citizen Report Classification A Case Study Using the Indones.pdf,10.1109/ACCESS.2022.3158940,fulltext,INCLUDE,IC1+IC2+IC3+IC4,SETUJU,audit 2026-10-05
+2024_10511080_Core-View Contrastive Learning Network for Building Lightweight Cross-Domain Consultation System.pdf,10.1109/ACCESS.2024.3395330,fulltext,INCLUDE,IC1,SETUJU,audit 2026-10-05

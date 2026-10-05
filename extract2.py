@@ -45,8 +45,10 @@ Skema: {{"doi":"","venue":"","content_type":"","type":"","domain":"","uses_llm_a
 
 
 def extract(text, proto):
+    # kepala 15K + ekor 15K (Limitations/Conclusion/Future Work di akhir)
+    head, tail = text[:15000], text[-15000:]
     msg = {"role": "user", "content": PROMPT.format(
-        rq="\n".join(proto["research_questions"]), text=text[:25000])}
+        rq="\n".join(proto["research_questions"]), text=head + "\n...[bagian akhir]...\n" + tail)}
     raw, _ = llm.chat([msg])
     s = raw[raw.find("{"):raw.rfind("}") + 1]
     try:

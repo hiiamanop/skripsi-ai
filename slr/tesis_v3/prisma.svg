@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="306">
+<rect x="20" y="18" width="320" height="54" fill="white" stroke="black"/><text x="30" y="48" font-size="13">Identification: 155 records A=151, B=4</text>
+<line x1="180" y1="72" x2="180" y2="90" stroke="black"/><polygon points="175,82 185,82 180,90" fill="black"/>
+<rect x="20" y="90" width="320" height="54" fill="white" stroke="black"/><text x="30" y="120" font-size="13">Title/abstract screened, excluded 102</text>
+<line x1="180" y1="144" x2="180" y2="162" stroke="black"/><polygon points="175,154 185,154 180,162" fill="black"/>
+<rect x="20" y="162" width="320" height="54" fill="white" stroke="black"/><text x="30" y="192" font-size="13">Full-text assessed: 53, excluded 9</text>
+<line x1="180" y1="216" x2="180" y2="234" stroke="black"/><polygon points="175,226 185,226 180,234" fill="black"/>
+<rect x="20" y="234" width="320" height="54" fill="white" stroke="black"/><text x="30" y="264" font-size="13">Included: 44</text>
+</svg>

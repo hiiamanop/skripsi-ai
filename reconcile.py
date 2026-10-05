@@ -19,7 +19,7 @@ def main():
     errs = []
     ta = [r for r in dec if r["phase"] == "title_abstract"]
     ft = [r for r in dec if r["phase"] == "fulltext"]
-    if len(ta) != sum(int(r.get("retrieved", 0)) for r in log if r.get("retrieved", "").isdigit()):
+    if len(ta) != sum(int(r.get("retrieved", 0) or 0) for r in log if (r.get("retrieved") or "").isdigit()):
         errs.append(f"screened {len(ta)} != retrieved log")
     passed = {r["id"] for r in ta if r["decision"] in ("INCLUDE", "UNSURE")}
     orph = [r["id"] for r in ft if r["id"] not in passed]
@@ -29,7 +29,8 @@ def main():
         errs.append("extraction+noeval != fulltext INCLUDE")
     for code, n in Counter(r["criterion"] for r in ft if r["decision"] == "EXCLUDE").items():
         print(f"  out-ft {code}: {n}")
-    print(f"identified={len(ta)} ft={len(ft)} primer={len(ext)} noeval={len(noev)}")
+    prim = {r["id"] for r in ext} - noev
+    print(f"identified={len(ta)} ft={len(ft)} primer={len(prim)} noeval={len(noev)}")
     if errs:
         print("GAGAL:"); [print(" -", e) for e in errs]
         sys.exit(1)

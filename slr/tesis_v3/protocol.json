@@ -1,0 +1,73 @@
+{
+  "version": "v2",
+  "date": "2026-10-05",
+  "research_questions": [
+    "SLR-RQ1: Bagaimana kepercayaan/keandalan agen dinilai dan dipakai dalam orkestrasi agen LLM/agentic? (K1)",
+    "SLR-RQ2: Bagaimana ketidaksepakatan antaragen dideteksi dan diselesaikan? (K2)",
+    "SLR-RQ3: Bagaimana biaya, latensi, dan nilai informasi dipertimbangkan saat re-evaluasi/eskalasi? (K3)",
+    "SLR-RQ4: Bagaimana kebijakan ditegakkan dan eksekusi dijamin andal? (K4)",
+    "SLR-RQ5: Bagaimana AI dipakai pada pemrosesan pengaduan publik, keputusan tindakan atau label?",
+    "SLR-RQ6: Bagaimana ketahanan sistem agen diuji? (K5)"
+  ],
+  "inclusion": [
+    "IC1: orkestrasi/koordinasi agen LLM/agentic, atau pengaduan publik",
+    "IC2: metode/kerangka yang dapat dianalisis",
+    "IC3: jurnal open access teks lengkap",
+    "IC4: relevan >=1 SLR-RQ"
+  ],
+  "exclusion": [
+    "EC1: multi-agent klasik tanpa LLM eksplisit",
+    "EC2: bukan jurnal/preprint/prosiding",
+    "EC3: berbayar",
+    "EC4: tanpa metode/evaluasi -> no_evaluation.csv",
+    "EC5: duplikat",
+    "EC6: tidak relevan"
+  ],
+  "qa_checklist": [
+    {
+      "id": "QA1",
+      "question": "Tujuan jelas?",
+      "weight": 1
+    },
+    {
+      "id": "QA2",
+      "question": "Metode replicable?",
+      "weight": 1
+    },
+    {
+      "id": "QA3",
+      "question": "Evaluasi empiris (data, metrik, pembanding)?",
+      "weight": 1
+    },
+    {
+      "id": "QA4",
+      "question": "Keterbatasan dibahas?",
+      "weight": 1
+    },
+    {
+      "id": "QA5",
+      "question": "Data/kode tersedia?",
+      "weight": 1
+    },
+    {
+      "id": "QA6",
+      "question": "Relevan langsung SLR-RQ?",
+      "weight": 1
+    }
+  ],
+  "gap_rq_map": {
+    "G1": "RQ1",
+    "G2": "RQ2",
+    "G3": "RQ4",
+    "G4": "RQ3",
+    "G5": [
+      "RQ3",
+      "RQ4"
+    ],
+    "G6": [
+      "RQ5",
+      "RQ6"
+    ]
+  },
+  "notes": "EC1: survei agentic AI bukan EC1, type=survey. Tier INTI/KONTEKS. QA6=0 dilarang bila ada rq_map."
+}
