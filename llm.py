@@ -34,10 +34,19 @@ def chat_ollama(messages):
     return d["message"]["content"]
 
 
+def chat_ninerouter(messages):
+    d = _post(f"{config.NINEROUTER_URL}/v1/chat/completions",
+              {"model": config.NINEROUTER_MODEL, "messages": messages},
+              {"Authorization": f"Bearer {config.NINEROUTER_API_KEY}"})
+    return d["choices"][0]["message"]["content"]
+
+
 def chat(messages):
-    """Chat via OpenRouter, fallback Ollama bila gagal."""
+    """Chat via backend config.LLM_BACKEND (openrouter | ninerouter), fallback Ollama."""
     try:
+        if config.LLM_BACKEND == "ninerouter":
+            return chat_ninerouter(messages), "ninerouter"
         return chat_openrouter(messages), "openrouter"
     except Exception as e:
-        print(f"OpenRouter gagal ({e}), fallback Ollama...")
+        print(f"{config.LLM_BACKEND} gagal ({e}), fallback Ollama...")
         return chat_ollama(messages), "ollama"

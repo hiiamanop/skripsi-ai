@@ -47,8 +47,9 @@ def main():
         rows = rows[:a.max]
     ok, miss = [], []
     for r in rows:
-        title = keywords(r["file"])
-        year = int(r["file"][:4]) if r["file"][:4].isdigit() else None
+        pdf = r.get("file") or r.get("id", "")
+        title = keywords(pdf)
+        year = int(pdf[:4]) if pdf[:4].isdigit() else None
         print(f"cari: {title}")
         m = None
         for attempt in range(2):
@@ -59,11 +60,11 @@ def main():
                 print(f"  retry: {str(e)[:60]}")
                 time.sleep(5)
                 if attempt == 1:
-                    miss.append(f"{r['file']} ({e})")
+                    miss.append(f"{pdf} ({e})")
         if m:
-            ok.append(entry(len(ok), m, r["file"]))
-        elif r["file"] not in [x.split(" (")[0] for x in miss]:
-            miss.append(r["file"])
+            ok.append(entry(len(ok), m, pdf))
+        elif pdf not in [x.split(" (")[0] for x in miss]:
+            miss.append(pdf)
         time.sleep(2)
     ok = [e for e in ok if e]
     open(f"{proj}/references.bib", "w").write("".join(ok))
