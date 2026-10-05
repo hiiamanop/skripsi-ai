@@ -69,5 +69,19 @@
       "RQ6"
     ]
   },
-  "notes": "EC1: survei agentic AI bukan EC1, type=survey. Tier INTI/KONTEKS. QA6=0 dilarang bila ada rq_map."
+  "notes": "EC1: survei agentic AI bukan EC1, type=survey. Tier INTI/KONTEKS. QA6=0 dilarang bila ada rq_map.",
+  "rq_simplified": {
+    "RQ1": "Keputusan: trust rekam-jejak + diagnosis konflik -> keputusan benar terkalibrasi? (K1+K2; A1,A2)",
+    "RQ2": "Efisiensi: eskalasi VOI turunkan biaya/latensi tanpa turun kualitas? (K3; A3 vs selalu-eskalasi)",
+    "RQ3": "Keamanan: policy gate terpadu trust+biaya + eksekusi andal kurangi larangan/ganda saat gangguan? (K4+K5; A4 + uji gangguan)",
+    "RQ_map_lama": "RQ1->K1 RQ2->K2 RQ3->K3 RQ4->K4 RQ5->pengaduan RQ6->K5 (tetap dipakai ekstraksi; sintesis pakai RQ1-3 baru)",
+    "K5_note": "Ketahanan bukan kebaruan sendiri; dimensi pengujian RQ3"
+  },
+  "amendments": [
+    {
+      "date": "2026-10-05",
+      "change": "String A sbg stringA_executed.txt; retrieved=151+4; DOI unik 152+3 tanpa DOI",
+      "reason": "STOP GATE + hitung ulang agent"
+    }
+  ]
 }

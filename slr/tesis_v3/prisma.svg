@@ -6,4 +6,4 @@
 <rect x="20" y="162" width="320" height="54" fill="white" stroke="black"/><text x="30" y="192" font-size="13">Full-text assessed: 53, excluded 9</text>
 <line x1="180" y1="216" x2="180" y2="234" stroke="black"/><polygon points="175,226 185,226 180,234" fill="black"/>
 <rect x="20" y="234" width="320" height="54" fill="white" stroke="black"/><text x="30" y="264" font-size="13">Included: 44</text>
-</svg>
+<text x='30' y='290' font-size='13'>Laporan tak dapat diunduh: 4 (403/404 saat grab)</text></svg>
