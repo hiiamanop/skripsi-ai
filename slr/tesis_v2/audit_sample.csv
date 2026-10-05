@@ -1,0 +1,56 @@
+id,doi,phase,ai_decision,ai_criterion,human_decision,human_note
+2025_10912445_LLM-Driven Social Influence for Cooperative Behavior in Multi-Agent Systems.pdf,10.1109/ACCESS.2025.3548451,title_abstract,EXCLUDE,EC6,SETUJU,audit manusia 2026-10-05: setuju semua
+2025_10964222_EcoptiAI E-Commerce Process Optimization and Operational Cost Minimization Through Task Automation U.pdf,10.1109/ACCESS.2025.3560549,title_abstract,EXCLUDE,EC6,SETUJU,audit manusia 2026-10-05: setuju semua
+2025_11050404_Toward Data Systems That Are Business Semantic Centric and AI Agents Assisted.pdf,10.1109/ACCESS.2025.3583260,title_abstract,EXCLUDE,EC1,SETUJU,audit manusia 2026-10-05: setuju semua
+2025_11071266_Agentic AI A Comprehensive Survey of Technologies Applications and Societal Implications.pdf,10.1109/ACCESS.2025.3585609,title_abstract,EXCLUDE,EC6,SETUJU,audit manusia 2026-10-05: setuju semua
+2025_11078243_DAWN Designing Distributed Agents in a Worldwide Network.pdf,10.1109/ACCESS.2025.3588425,title_abstract,INCLUDE,IC4,SETUJU,audit manusia 2026-10-05: setuju semua
+2025_11083588_Agentic AI Systems Architecture and Evaluation Using a Frictionless Parking Scenario.pdf,10.1109/ACCESS.2025.3590264,title_abstract,INCLUDE,IC4,SETUJU,audit manusia 2026-10-05: setuju semua
+2025_11129017_ADAM-1 An AI Reasoning and Bioinformatics Model for Alzheimers Disease Detection and Microbiome-Clin.pdf,10.1109/ACCESS.2025.3599857,title_abstract,EXCLUDE,EC6,SETUJU,audit manusia 2026-10-05: setuju semua
+2025_11151993_Enhancing Smart Contract Security Through DevSecOps An Adaptive Approach for Vulnerability Detection.pdf,10.1109/ACCESS.2025.3606572,title_abstract,EXCLUDE,EC1,SETUJU,audit manusia 2026-10-05: setuju semua
+2025_11168174_RALLY Role-Adaptive LLM-Driven Yoked Navigation for Agentic UAV Swarms.pdf,10.1109/OJVT.2025.3610852,title_abstract,EXCLUDE,EC6,SETUJU,audit manusia 2026-10-05: setuju semua
+2025_11168264_UnifiedKP A Unified Network Knowledge Plane for Large Model-Enabled 6G Networks.pdf,10.1109/ACCESS.2025.3610890,title_abstract,EXCLUDE,EC6,SETUJU,audit manusia 2026-10-05: setuju semua
+2025_11293797_NetIntent Leveraging Large Language Models for End-to-End Intent-Based SDN Automation.pdf,10.1109/OJCOMS.2025.3642642,title_abstract,INCLUDE,IC4,SETUJU,audit manusia 2026-10-05: setuju semua
+2025_11299523_Toward Reliable Annotation in Low-Resource NLP A Mixture of Agents Framework and Multi-LLM Benchmark.pdf,10.1109/ACCESS.2025.3643829,title_abstract,INCLUDE,IC4,SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11315900_Building Trustworthy AI in Healthcare.pdf,10.1109/ACCESS.2025.3648410,title_abstract,EXCLUDE,EC6,SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11328752_Redefining Elderly Care With Agentic AI Challenges and Opportunities.pdf,10.1109/OJCS.2026.3650842,title_abstract,EXCLUDE,EC6,SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11329025_Agentic AI in Healthcare and Medicine A Seven-Dimensional Taxonomy for Empirical Evaluation of LLM-B.pdf,10.1109/ACCESS.2026.3651218,title_abstract,INCLUDE,IC4,SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11417193_COSMIC Leader-Driven Context-Oriented Collaboration Between Agents.pdf,,title_abstract,INCLUDE,IC1+IC2+IC4,SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11431193_Beyond Connectivity via Artificial Intelligence Agents Enabling Perceptive Adaptive and Anticipatory.pdf,10.1109/ACCESS.2026.3667803,title_abstract,INCLUDE,IC4,SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11431212_KAIR Knowledge-Aware Iterative Retrieval for Multiagent Systems.pdf,10.1109/TCSS.2026.3668728,title_abstract,EXCLUDE,EC6,SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11456525_Model Proficiency in Centralized Multi-Agent Systems A Performance Study.pdf,,title_abstract,EXCLUDE,EC1,SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11498313_CowNet-AI A Multi-Agent Decision Support Framework for Social NetworkDriven Welfare Insights in Dair.pdf,10.1109/ACCESS.2026.3688544,title_abstract,INCLUDE,"IC1,IC2,IC3,IC4",SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11506356_Adversarial Machine Learning A 20-Year Survey of Attacks Defenses and Standards.pdf,10.1109/ACCESS.2026.3690620,title_abstract,EXCLUDE,EC6,SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11523051_Engineering LLM-Based Multiagent Systems A Taxonomy of Emerging Frameworks.pdf,10.1109/MS.2026.3694089,title_abstract,EXCLUDE,EC6,SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11526796_ACT A Conceptual Framework for Understanding and Controlling Trustworthiness in Controllable AI.pdf,10.1109/ACCESS.2026.3694817,title_abstract,INCLUDE,IC4,SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11540994_From LLM Reasoning to Autonomous AI Agents A Comprehensive Review.pdf,10.1109/ACCESS.2026.3698694,title_abstract,INCLUDE,IC4,SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11558582_Artificial Intelligence Overload A Multilevel Taxonomy and the Path Forward.pdf,10.1109/MIS.2026.3666685,title_abstract,EXCLUDE,EC6,SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11574655_Trust-Aware Orchestration Architecture for LLM-Assisted Workflows in Multi-Tenant Enterprise Systems.pdf,10.1109/ACCESS.2026.3706063,title_abstract,INCLUDE,IC1,SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11586076_Nested Multi-Agent Reinforcement Learning for Adaptive Resource Management in 6G Network Slicing A M.pdf,10.1109/OJCOMS.2026.3708409,title_abstract,EXCLUDE,EC1,SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11593797_Explainable AI in Sovereign Network Defense A Systematic Review of Trustworthy Mechanisms for ISD-WA.pdf,10.1109/ACCESS.2026.3709613,title_abstract,EXCLUDE,EC1,SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11609268_α3-Bench A Unified Benchmark of Safety Robustness and Efficiency for LLM-Based UAV Agents Over 6G Ne.pdf,10.1109/OJITS.2026.3713296,title_abstract,INCLUDE,IC4,SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11644696_A Survey and an Analysis of Conflict Management in O-RAN.pdf,10.1109/OJCOMS.2026.3721736,title_abstract,EXCLUDE,EC6,SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11658683_Persistent Goal-Tracking and Instruction-Driven Reasoning in Sequential Conversation QA.pdf,10.1109/ACCESS.2026.3725149,title_abstract,INCLUDE,IC1+IC2+IC3+IC4,SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11661294_Agentic AI in Healthcare Current Applications Challenges and Future Directions.pdf,10.1109/ACCESS.2026.3725858,title_abstract,INCLUDE,IC1+IC4,SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11666482_Evil-AI Benchmark An Evaluation Framework for Adversarial Security Assessment of LLM Agents in Smart.pdf,10.1109/ACCESS.2026.3727159,title_abstract,INCLUDE,IC1,SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11676055_From Large Language Models to Large Action Models Redefining Communication Intelligence in Healthcar.pdf,10.1109/OJCOMS.2026.3730350,title_abstract,EXCLUDE,EC6,SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11715697_AI-Driven Agent-Based Urban Digital Twins A Systematic Literature Review.pdf,10.1109/ACCESS.2024.0429000,title_abstract,EXCLUDE,EC1,SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11715712_Profiling Massive Multi-Agent System for 6G.pdf,,title_abstract,EXCLUDE,EC6,SETUJU,audit manusia 2026-10-05: setuju semua
+2025_11078243_DAWN Designing Distributed Agents in a Worldwide Network.pdf,10.1109/ACCESS.2025.3588425,fulltext,INCLUDE,IC4,SETUJU,audit manusia 2026-10-05: setuju semua
+2025_11083588_Agentic AI Systems Architecture and Evaluation Using a Frictionless Parking Scenario.pdf,10.1109/ACCESS.2025.3590264,fulltext,INCLUDE,IC4,SETUJU,audit manusia 2026-10-05: setuju semua
+2025_11293797_NetIntent Leveraging Large Language Models for End-to-End Intent-Based SDN Automation.pdf,10.1109/OJCOMS.2025.3642642,fulltext,EXCLUDE,EC6,SETUJU,audit manusia 2026-10-05: setuju semua
+2025_11299523_Toward Reliable Annotation in Low-Resource NLP A Mixture of Agents Framework and Multi-LLM Benchmark.pdf,10.1109/ACCESS.2025.3643829,fulltext,INCLUDE,IC4,SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11329025_Agentic AI in Healthcare and Medicine A Seven-Dimensional Taxonomy for Empirical Evaluation of LLM-B.pdf,10.1109/ACCESS.2026.3651218,fulltext,EXCLUDE,EC6,SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11417193_COSMIC Leader-Driven Context-Oriented Collaboration Between Agents.pdf,,fulltext,INCLUDE,IC4,SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11431193_Beyond Connectivity via Artificial Intelligence Agents Enabling Perceptive Adaptive and Anticipatory.pdf,10.1109/ACCESS.2026.3667803,fulltext,INCLUDE,IC4,SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11498313_CowNet-AI A Multi-Agent Decision Support Framework for Social NetworkDriven Welfare Insights in Dair.pdf,10.1109/ACCESS.2026.3688544,fulltext,EXCLUDE,EC6,SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11526796_ACT A Conceptual Framework for Understanding and Controlling Trustworthiness in Controllable AI.pdf,10.1109/ACCESS.2026.3694817,fulltext,EXCLUDE,IC4,SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11540994_From LLM Reasoning to Autonomous AI Agents A Comprehensive Review.pdf,10.1109/ACCESS.2026.3698694,fulltext,EXCLUDE,EC6,SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11574655_Trust-Aware Orchestration Architecture for LLM-Assisted Workflows in Multi-Tenant Enterprise Systems.pdf,10.1109/ACCESS.2026.3706063,fulltext,INCLUDE,IC4,SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11609268_α3-Bench A Unified Benchmark of Safety Robustness and Efficiency for LLM-Based UAV Agents Over 6G Ne.pdf,10.1109/OJITS.2026.3713296,fulltext,INCLUDE,IC4,SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11658683_Persistent Goal-Tracking and Instruction-Driven Reasoning in Sequential Conversation QA.pdf,10.1109/ACCESS.2026.3725149,fulltext,EXCLUDE,EC6,SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11661294_Agentic AI in Healthcare Current Applications Challenges and Future Directions.pdf,10.1109/ACCESS.2026.3725858,fulltext,EXCLUDE,EC6,SETUJU,audit manusia 2026-10-05: setuju semua
+2026_11666482_Evil-AI Benchmark An Evaluation Framework for Adversarial Security Assessment of LLM Agents in Smart.pdf,10.1109/ACCESS.2026.3727159,fulltext,EXCLUDE,IC1,SETUJU,audit manusia 2026-10-05: setuju semua
+2022_9733331_Contextual Text Analytics Framework for Citizen Report Classification A Case Study Using the Indones.pdf,10.1109/ACCESS.2022.3158940,title_abstract,INCLUDE,IC4,SETUJU,audit manusia 2026-10-05: setuju semua
+2024_10511080_Core-View Contrastive Learning Network for Building Lightweight Cross-Domain Consultation System.pdf,10.1109/ACCESS.2024.3395330,title_abstract,INCLUDE,IC1,SETUJU,audit manusia 2026-10-05: setuju semua
+2022_9733331_Contextual Text Analytics Framework for Citizen Report Classification A Case Study Using the Indones.pdf,10.1109/ACCESS.2022.3158940,fulltext,INCLUDE,IC1+IC2+IC3+IC4,SETUJU,audit manusia 2026-10-05: setuju semua
+2024_10511080_Core-View Contrastive Learning Network for Building Lightweight Cross-Domain Consultation System.pdf,10.1109/ACCESS.2024.3395330,fulltext,INCLUDE,IC1,SETUJU,audit manusia 2026-10-05: setuju semua

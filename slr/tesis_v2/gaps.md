@@ -34,6 +34,3 @@ Pendukung: RQ5 tanpa orkestrasi. K5 TIDAK 20+ termasuk 2026_11668741_Conversatio
 Kontra: K5 TERTUTUP 5 luar aduan: 2026_11449535_Multi-agent energy management `hospital emergency 161% surge 8 transfers zero cost increase`; 2026_11480847_CurbAI; 2026_11574655_Trust-Aware Orchestration `14885 evaluations`; 2026_11575974_Theory-Grounded `CGS 0.80`; 2026_11626853_Contamination Percolation `up to 92% under full connectivity`.
 Kekuatan: kuat dalam cakupan aduan. Tahan uji ada luar domain, nol dalam aduan.
 Cakupan: dalam artikel jurnal open access IEEE Xplore 2021-2026 yang ditelaah.
-
-`ponytail: duplikat 11373381 hitung satu, ambang eskalasi plafon belum, pisah saat data penuh.`
-skipped: cek fulltext ulang, tambah saat sengketa halaman.

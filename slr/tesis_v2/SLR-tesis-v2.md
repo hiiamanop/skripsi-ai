@@ -203,7 +203,9 @@ skipped: cek fulltext ulang, tambah saat sengketa halaman.
 - [PARSIAL] 2026_11703585_Agentic AI for Scalable and Robust Optical Sys — {'K1': 'kutipan: "construct a comprehensive 410-task benchmark to evaluate the performance of AgentOptics across request understanding, role-dependent
 
 
-## 4. PR yang belum (agent tesis)
+## 4. Status audit + sisa kerja
 - 19 MISS BibTeX (isi manual dari PDF; tanpa kunci sementara per aturan).
 - Audit manusia 38 sampel (human_decision kosong).
 - needs_human_read: pesaing 11574655 + Luo 11641460 baca penuh.
+- Audit manusia 55 sampel: SELESAI, SETUJU semua (2026-10-05).
+- Sisa: 19 entri BibTeX MISS (manual dari PDF).
