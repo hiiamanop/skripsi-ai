@@ -61,25 +61,40 @@ def main():
                   if r["phase"] == "title_abstract" and r["decision"] == "include"}
         files = [f for f in files if f in passed]
     files = [f for f in files if (f, a.phase) not in seen]
+    import time as _t
     with open(dec_path, "a", newline="") as f:
         w = csv.DictWriter(f, fieldnames=DECISION_FIELDS)
         if not seen:
             w.writeheader()
+            f.flush()
         for pdf in files:
             text = full_text_of(f"{config.PAPERS_DIR}/{pdf}")
             if a.phase == "title_abstract":
                 text = "\n".join(text.split("\n")[:60])
-            s = score_paper(text.split("\n")[0][:200], text,
-                            proto["research_questions"], proto["inclusion"], proto["exclusion"])
+            for attempt in range(3):  # retry API 3x
+                try:
+                    s = score_paper(text.split("\n")[0][:200], text,
+                                    proto["research_questions"], proto["inclusion"], proto["exclusion"])
+                    break
+                except Exception as e:
+                    print(f"retry {attempt + 1} {pdf}: {str(e)[:100]}", flush=True)
+                    _t.sleep(5 * (attempt + 1))
+            else:
+                print(f"LEWAT {pdf}: API gagal 3x", flush=True)
+                continue
             if a.auto and s["score"] >= a.min_score:
                 dec = "include"
             else:
-                print(f"\n{pdf}\nskor={s['score']} {s['reason']}")
-                dec = "include" if input("include? [y/N] ").lower() == "y" else "exclude"
+                print(f"\n{pdf}\nskor={s['score']} {s['reason']}", flush=True)
+                try:
+                    dec = "include" if input("include? [y/N] ").lower() == "y" else "exclude"
+                except EOFError:
+                    dec = "exclude"  # non-interaktif: skor rendah tanpa konfirmasi = buang
             w.writerow({"file": pdf, "source": detect_source(pdf),
                         "phase": a.phase, "decision": dec,
-                        "reason": s["reason"], "qa_score": ""})
-            print(f"{dec}: {pdf}")
+                        "reason": f"[{s['score']}] " + s["reason"], "qa_score": ""})
+            f.flush()
+            print(f"{dec}: {pdf}", flush=True)
 
 
 if __name__ == "__main__":
