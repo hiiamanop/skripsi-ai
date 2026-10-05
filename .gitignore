@@ -7,3 +7,8 @@ slr/
 grab.log
 grab.pid
 tests/__pycache__/
+*.log
+papers.zip
+.DS_Store
+__MACOSX/
+.pytest_cache/
