@@ -19,22 +19,28 @@ from pypdf import PdfReader
 import config
 import llm
 
-FIELDS = ["id", "doi", "year", "venue", "type", "domain", "uses_llm_agent", "objective",
-          "method_data", "method_model", "method_metrics", "method_baseline", "results",
-          "rq_map", "k_map", "limitation_quote", "limitation_page", "not_covered",
-          "qa1", "qa2", "qa3", "qa4", "qa5", "qa6", "reading", "confidence"]
+FIELDS = ["id", "doi", "year", "venue", "content_type", "type", "tier", "domain",
+          "uses_llm_agent", "objective", "method_data", "method_model", "method_metrics",
+          "method_baseline", "results", "rq_map", "k_map", "k_evidence",
+          "limitation_quote", "limitation_page", "sections_scanned", "not_covered",
+          "qa1", "qa2", "qa3", "qa4", "qa5", "qa6", "qa_total", "reading", "confidence"]
 
 PROMPT = """Kamu ekstraktor SLR. Baca paper, jawab JSON saja. Aturan WAJIB:
 - Setiap klaim metode/hasil WAJIB dari teks. Tidak ada di teks -> tulis "TIDAK DITEMUKAN".
 - limitation_quote: kutipan verbatim penulis <=25 kata + limitation_page nomor halaman.
-- qa1..qa6: 0 / 0.5 / 1.
+- qa1..qa6: 0 / 0.5 / 1. QA6=0 DILARANG bila rq_map tak kosong; studi fokus K1-K4 dapat 1.
+- k_map: per K1-K5 tulis TERTUTUP / PARSIAL / TIDAK / TIDAK DITEMUKAN.
+- k_evidence: kutipan + halaman tiap TERTUTUP/PARSIAL.
+- sections_scanned: bagian yang dipindai (mis. Abstract, Limitations, Conclusion, Future Work).
+- limitation_quote: KALIMAT UTUH verbatim <=25 kata (dilarang fragmen).
 - type: survey|empiris|kerangka. reading: FULLTEXT. confidence: tinggi|sedang|rendah.
 RQ: {rq}
 Paper:
 {text}
-Skema: {{"doi":"","venue":"","type":"","domain":"","uses_llm_agent":"","objective":"",
+Skema: {{"doi":"","venue":"","content_type":"","type":"","domain":"","uses_llm_agent":"","objective":"",
 "method_data":"","method_model":"","method_metrics":"","method_baseline":"","results":"",
-"rq_map":"","k_map":"","limitation_quote":"","limitation_page":"","not_covered":"",
+"rq_map":"","k_map":"","k_evidence":"","limitation_quote":"","limitation_page":"",
+"sections_scanned":"","not_covered":"",
 "qa1":0,"qa2":0,"qa3":0,"qa4":0,"qa5":0,"qa6":0,"confidence":""}}"""
 
 
@@ -96,9 +102,12 @@ def main():
             else:
                 print(f"GAGAL {pdf}: 3x", flush=True)
                 continue
-            doi = next((r["doi"] for r in csv.DictReader(open(f"{proj}/decisions.csv"))
-                        if r["id"] == pdf), "")
-            w.writerow({"id": pdf, "doi": doi, "year": pdf[:4], **{k: d.get(k, "") for k in FIELDS[3:]}})
+            dec = next((r for r in csv.DictReader(open(f"{proj}/decisions.csv"))
+                        if r["id"] == pdf), {})
+            qa_tot = sum(float(d.get(f"qa{i}", 0) or 0) for i in range(1, 7))
+            w.writerow({"id": pdf, "doi": dec.get("doi", ""), "year": pdf[:4],
+                        "tier": dec.get("tier", ""), "qa_total": qa_tot, "reading": "FULLTEXT",
+                        **{k: d.get(k, "") for k in FIELDS if k not in ("id", "doi", "year", "tier", "qa_total", "reading")}})
             f.flush()
             print(f"[{i}/{len(inc)}] OK {pdf}", flush=True)
     qa_rows = list(csv.DictReader(open(out)))

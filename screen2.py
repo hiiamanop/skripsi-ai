@@ -16,7 +16,7 @@ from pypdf import PdfReader
 import config
 import llm
 
-FIELDS = ["id", "doi", "title", "year", "phase", "decision", "criterion", "reason", "reviewer"]
+FIELDS = ["id", "doi", "title", "year", "content_type", "phase", "decision", "criterion", "reason", "tier", "reviewer"]
 
 PROMPT = """Kamu auditor SLR yang SKEPTIS. Default EXCLUDE kecuali bukti eksplisit di teks.
 Putuskan SATU: INCLUDE / EXCLUDE / UNSURE.
@@ -27,8 +27,12 @@ Aturan: EC1 (multi-agent klasik tanpa LLM eksplisit) HANYA untuk track=A (string
 Untuk track=B (pengaduan publik): LLM tidak wajib; nilai via IC1 jalur pengaduan + IC2 metode.
 Judul: {title}
 Teks: {text}
-Jawab JSON saja: {{"decision": "...", "criterion": "IC1/EC1/...", "reason": "1 kalimat",
-"uses_llm": "ya/tidak", "doi": "... atau kosong"}}"""
+Survei agentic AI BUKAN EC1 (type survey, tetap INCLUDE bila relevan).
+Tier: INTI bila substantif K1-K4/K5/pengaduan; KONTEKS bila aplikasi lain tanpa mekanisme itu.
+INCLUDE wajib sebut SLR-RQ mana + bukti teks (alasan hanya IC4 ditolak).
+Jawab JSON saja: {{"decision": "...", "criterion": "IC1/EC1/...", "reason": "1 kalimat + RQ",
+"tier": "INTI/KONTEKS", "uses_llm": "ya/tidak", "doi": "... atau kosong",
+"content_type": "...", "is_survey": true/false}}"""
 
 
 def judge(title, text, proto, track):
@@ -104,8 +108,9 @@ def main():
                 except EOFError:
                     pass
             w.writerow({"id": pdf, "doi": j.get("doi", ""), "title": pdf, "year": year,
+                        "content_type": j.get("content_type", ""),
                         "phase": a.phase, "decision": dec, "criterion": j.get("criterion", ""),
-                        "reason": j.get("reason", ""), "reviewer": "agen"})
+                        "reason": j.get("reason", ""), "tier": j.get("tier", ""), "reviewer": "agen"})
             f.flush()
             print(f"{dec}: {pdf}", flush=True)
 
