@@ -9,6 +9,22 @@ from collections import Counter
 
 import config
 
+def short_reason(reason):
+    """Kelompokkan alasan exclude ke kategori singkat untuk PRISMA."""
+    r = reason.lower()
+    if any(k in r for k in ("trust", "confidence", "governance", "kalibrasi", "kepercayaan",
+                            "pengukuran")):
+        return "trust/governance tak dibahas"
+    if any(k in r for k in ("metode", "method", "evaluasi", "experiment")):
+        return "metode/evaluasi tak jelas"
+    if any(k in r for k in ("tahun", "year", "bahasa", "language", "konferensi", "preprint")):
+        return "di luar kriteria inklusi"
+    if any(k in r for k in ("fokus utama", "kurang jelas", "tidak cukup", "uav", "robot",
+                            "kesehatan", "hr ", "pertahanan", "v2x", "farmako")):
+        return "di luar fokus RQ"
+    return "lainnya: " + reason[5:85]  # lewati prefix [skor]
+
+
 BOX_W, BOX_H, GAP = 320, 54, 18
 
 
@@ -18,7 +34,7 @@ def prisma_counts(rows):
     ta_ex = sum(1 for r in rows if r["phase"] == "title_abstract" and r["decision"] == "exclude")
     ft = [r for r in rows if r["phase"] == "fulltext"]
     ft_ex = sum(1 for r in ft if r["decision"] == "exclude")
-    reasons = Counter(r["reason"] for r in ft if r["decision"] == "exclude" and r["reason"])
+    reasons = Counter(short_reason(r["reason"]) for r in ft if r["decision"] == "exclude")
     return {
         "by_source": dict(ident),
         "identified_total": sum(ident.values()),
