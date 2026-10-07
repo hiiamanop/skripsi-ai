@@ -1,0 +1,156 @@
+no,file_id,doi,doi_status,putusan_fase1,kode
+1,2008_6072958_A GIS-based 3D simulation for occupant evacuation in a building.pdf,10.1016/S1007-0214(08)70127-5,ADA,EXCLUDE,EC1
+2,2021_9628082_Multi-Dimensional Trust Quantification by Artificial Agents Through Evidential Fuzzy Multi-Criteria .pdf,10.1109/ACCESS.2021.3131521,ADA,EXCLUDE,EC1
+3,2022_11292707_Mutually Trustworthy Human-Machine Knowledge Automation and Hybrid Augmented Intelligence Mechanisms.pdf,10.1631/FITEE.2100418,ADA,EXCLUDE,EC1
+4,2022_9596058_Active Exploitation of Redundancies in Reconfigurable Multirobot Systems.pdf,10.1109/TRO.2021.3118284,ADA,EXCLUDE,EC1
+5,2022_9765494_Market Dynamics and Regulation of a Crowd-Sourced AI Marketplace.pdf,10.1109/ACCESS.2022.3171254,ADA,EXCLUDE,EC1
+6,2024_10720018_DeCoAgent Large Language Model Empowered Decentralized Autonomous Collaboration Agents Based on Smar.pdf,10.1109/ACCESS.2024.3481641,ADA,INCLUDE,"IC1,IC2,IC3,IC4"
+7,2024_10758700_Maestro LLM-Driven Collaborative Automation of Intent-Based 6G Networks.pdf,10.1109/lnet.2024.3503292,ADA,INCLUDE,IC4
+8,2025_10844277_Virtual Cities From Digital Twins to Autonomous AI Societies.pdf,10.1109/ACCESS.2025.3531222,ADA,EXCLUDE,EC1
+9,2025_10849561_Agentic AI Autonomous Intelligence for Complex GoalsA Comprehensive Survey.pdf,10.1109/ACCESS.2025.3532853,ADA,INCLUDE,IC1+IC4-survey
+10,2025_10912445_LLM-Driven Social Influence for Cooperative Behavior in Multi-Agent Systems.pdf,10.1109/ACCESS.2025.3548451,ADA,EXCLUDE,EC6
+11,2025_10930951_Retail Resilience Engine An Agentic AI Framework for Building Reliable Retail Systems With Test-Driv.pdf,10.1109/ACCESS.2025.3552592,ADA,EXCLUDE,EC6
+12,2025_10964222_EcoptiAI E-Commerce Process Optimization and Operational Cost Minimization Through Task Automation U.pdf,10.1109/ACCESS.2025.3560549,ADA,EXCLUDE,EC6
+13,2025_11050404_Toward Data Systems That Are Business Semantic Centric and AI Agents Assisted.pdf,10.1109/ACCESS.2025.3583260,ADA,EXCLUDE,EC1
+14,2025_11071266_Agentic AI A Comprehensive Survey of Technologies Applications and Societal Implications.pdf,10.1109/ACCESS.2025.3585609,ADA,INCLUDE,IC1+IC4-survey
+15,2025_11078243_DAWN Designing Distributed Agents in a Worldwide Network.pdf,10.1109/ACCESS.2025.3588425,ADA,INCLUDE,IC4
+16,2025_11081880_Security of Internet of Agents Attacks and Countermeasures.pdf,10.1109/OJCS.2025.3589638,ADA,INCLUDE,IC4
+17,2025_11083588_Agentic AI Systems Architecture and Evaluation Using a Frictionless Parking Scenario.pdf,10.1109/ACCESS.2025.3590264,ADA,INCLUDE,IC4
+18,2025_11129017_ADAM-1 An AI Reasoning and Bioinformatics Model for Alzheimers Disease Detection and Microbiome-Clin.pdf,10.1109/ACCESS.2025.3599857,ADA,EXCLUDE,EC6
+19,2025_11131150_Intent-Based Infrastructure and Service Orchestration Using Agentic-AI.pdf,10.1109/OJCOMS.2025.3600706,ADA,EXCLUDE,EC6
+20,2025_11131174_Customer Experience in E-Commerce A Systematic Review of Metrics Models and the Role of AI.pdf,10.1109/ACCESS.2025.3600729,ADA,EXCLUDE,EC6
+21,2025_11150377_Autonomous Electromagnetic Simulation and Modeling of QFN Micro-Electronic Packages Using LLM Agents.pdf,10.1109/ACCESS.2025.3605803,ADA,EXCLUDE,EC6
+22,2025_11151993_Enhancing Smart Contract Security Through DevSecOps An Adaptive Approach for Vulnerability Detection.pdf,10.1109/ACCESS.2025.3606572,ADA,EXCLUDE,EC1
+23,2025_11168174_RALLY Role-Adaptive LLM-Driven Yoked Navigation for Agentic UAV Swarms.pdf,10.1109/OJVT.2025.3610852,ADA,EXCLUDE,EC6
+24,2025_11168264_UnifiedKP A Unified Network Knowledge Plane for Large Model-Enabled 6G Networks.pdf,10.1109/ACCESS.2025.3610890,ADA,EXCLUDE,EC6
+25,2025_11176078_An Adaptive Multi-Agent LLM-Based Clinical Decision Support System Integrating Biomedical RAG and We.pdf,10.1109/ACCESS.2025.3613340,ADA,INCLUDE,"IC1,IC2,IC4"
+26,2025_11201263_Agentic AI in Education State of the Art and Future Directions.pdf,10.1109/ACCESS.2025.3620473,ADA,EXCLUDE,EC6
+27,2025_11236430_GraphMind Context-Aware Multi-Agent Systems With Graph Attention Autoencoder and Large Language Mode.pdf,10.1109/ACCESS.2025.3630967,ADA,EXCLUDE,EC6
+28,2025_11251213_KAQG A Knowledge-Graph-Enhanced RAG for Difficulty-Controlled Question Generation.pdf,10.1109/ACCESS.2025.3633838,ADA,EXCLUDE,EC6
+29,2025_11259048_On-Device Intent Reasoning for Smart Home Agents Via Ontology-Augmented sLLMs.pdf,10.1109/ACCESS.2025.3634621,ADA,EXCLUDE,EC6
+30,2025_11293797_NetIntent Leveraging Large Language Models for End-to-End Intent-Based SDN Automation.pdf,10.1109/OJCOMS.2025.3642642,ADA,INCLUDE,IC4
+31,2025_11299523_Toward Reliable Annotation in Low-Resource NLP A Mixture of Agents Framework and Multi-LLM Benchmark.pdf,10.1109/ACCESS.2025.3643829,ADA,INCLUDE,IC4
+32,2026_11219066_Side-Channel Attacks on Protected Cryptographic Devices in Agentic AI A Wavelet Scattering-Based Mul.pdf,10.1109/TCCN.2025.3626384,ADA,EXCLUDE,EC6
+33,2026_11313855_A Threshold-Triggered Deep Q-Network-Based Framework for Self-Healing in Autonomic Software-Defined .pdf,,TANPA-DOI,EXCLUDE,EC1
+34,2026_11315900_Building Trustworthy AI in Healthcare.pdf,10.1109/ACCESS.2025.3648410,ADA,EXCLUDE,EC6
+35,2026_11316643_Agentic TinyML for Intent-Aware Handover in 6G Wireless Networks.pdf,10.1109/MWC.2025.3635579,ADA,EXCLUDE,EC1
+36,2026_11316910_Agentic AI Frameworks Under the Microscope What Works What Doesnt.pdf,10.1109/MS.2025.3622209,ADA,EXCLUDE,EC6
+37,2026_11318586_Telemetry and Agentic AI Foundations for Optical Network Automation.pdf,10.1109/ACCESS.2025.3649768,ADA,EXCLUDE,EC6
+38,2026_11328752_Redefining Elderly Care With Agentic AI Challenges and Opportunities.pdf,10.1109/OJCS.2026.3650842,ADA,EXCLUDE,EC6
+39,2026_11329025_Agentic AI in Healthcare and Medicine A Seven-Dimensional Taxonomy for Empirical Evaluation of LLM-B.pdf,10.1109/ACCESS.2026.3651218,ADA,INCLUDE,IC4
+40,2026_11343819_Methods and Techniques of Agentic Software Engineering A Systematic Literature Review.pdf,10.1109/ACCESS.2026.3652325,ADA,INCLUDE,IC1+IC4
+41,2026_11348026_HARMONY A Framework for Multimodal LLM-Powered AI Agents in Smart Homes via the Model Context Protoc.pdf,10.1109/ACCESS.2026.3653992,ADA,EXCLUDE,EC6
+42,2026_11353439_Agentic AI in Wind Energy Systems Multi-Agent Architectures for Optimization and Resilience.pdf,10.1109/ACCESS.2026.3654529,ADA,EXCLUDE,EC1
+43,2026_11370553_LLM-Augmented Multi-Agent System for Trading Behavior Modeling in Coupled Electricity-Carbon Markets.pdf,10.35833/MPCE.2025.000645,ADA,EXCLUDE,EC6
+44,2026_11370646_Agentic AI Service Architecture Based on SOA.pdf,10.13052/jwe1540-9589.2511,ADA,EXCLUDE,EC1
+45,2026_11370664_Introduction to the ICOW3 2025 Special Issue.pdf,,TANPA-DOI,EXCLUDE,EC1
+46,2026_11373381_Agentic AI With Orchestrator-Agent Trust A Modular Visual Classification Framework With Trust-Aware .pdf,10.1109/ACCESS.2026.3662282,ADA,INCLUDE,IC4
+47,2026_11373876_Agentic ElderFedLearn A Differential Privacy-Based Approach for Elderly Disease Prediction.pdf,10.1109/TCSS.2026,ADA,EXCLUDE,EC1
+48,2026_11393619_Multimodal and Agentic IntelligenceDriven ML Fusion for Sustainable 6G Network Slicing.pdf,10.1109/OJCOMS.2026.3663612,ADA,EXCLUDE,EC1
+49,2026_11394729_Minimizing Response Latency in LLM-Based Agent Systems A Comprehensive Survey.pdf,10.1109/ACCESS.2026.3664226,ADA,EXCLUDE,EC6
+50,2026_11397322_Agentic AI Arrives How Gen Z Adopts Autonomous AI Agents.pdf,10.1109/ACCESS.2026.3665348,ADA,EXCLUDE,EC6
+51,2026_11404291_The End of Pretraining for Large Language Models The Future of Agentic and AI Reasoning Beyond Peak .pdf,10.1109/MC.2025.3612810,ADA,EXCLUDE,EC6
+52,2026_11411786_A Systematic Literature Review of Agentic AI Definitions Architectures and Challenges.pdf,10.1109/ACCESS.2026.3668138,ADA,EXCLUDE,EC6
+53,2026_11417193_COSMIC Leader-Driven Context-Oriented Collaboration Between Agents.pdf,10.1109/TCSS.2026.3661839,ADA,INCLUDE,IC1+IC2+IC4
+54,2026_11428168_AGORA Agentic Green Orchestration Architecture for Beyond 5G Networks.pdf,10.1109/ACCESS.2026.3672699,ADA,INCLUDE,IC4
+55,2026_11431193_Beyond Connectivity via Artificial Intelligence Agents Enabling Perceptive Adaptive and Anticipatory.pdf,10.1109/ACCESS.2026.3667803,ADA,INCLUDE,IC4
+56,2026_11431212_KAIR Knowledge-Aware Iterative Retrieval for Multiagent Systems.pdf,10.1109/TCSS.2026.3668728,ADA,EXCLUDE,EC6
+57,2026_11447227_Agentic AI Security Threats Defenses Evaluation and Open Challenges.pdf,10.1109/ACCESS.2026.3675554,ADA,INCLUDE,IC4
+58,2026_11448978_Resilience-Oriented Lifecycle Automation of Structural RC Elements via a Multi-Agent System Framewor.pdf,10.26599/JIC.2026.9180111,ADA,EXCLUDE,EC6
+59,2026_11449535_Multi-agent energy management for priority-aware microgrids Integrating LLM negotiation with two-pas.pdf,10.17775/CSEEJPES.2025.08910,ADA,INCLUDE,IC4
+60,2026_11456525_Model Proficiency in Centralized Multi-Agent Systems A Performance Study.pdf,10.1109/LSP.2026.3678140,ADA,EXCLUDE,EC1
+61,2026_11456981_LLMs for End-to-End Machine Learning A Comprehensive Review.pdf,10.1109/ACCESS.2026.3678429,ADA,EXCLUDE,EC6
+62,2026_11457580_Knowledge Tracing Models in Educational Data Mining Historical Evolution Categorization and Empirica.pdf,10.1109/ACCESS.2026.3678846,ADA,EXCLUDE,EC6
+63,2026_11474618_6G-Bench An Open Benchmark for Semantic Communication and Network-Level Reasoning With Foundation Mo.pdf,10.1109/OJCOMS.2026.3680457,ADA,EXCLUDE,EC6
+64,2026_11474799_Making Sense of AI Agents Hype Adoption Architectures and Takeaways From Practitioners.pdf,10.1109/MS.2026.3680431,ADA,EXCLUDE,EC6
+65,2026_11480814_Power-Q A Hybrid Screener-Analyst Framework Using LLM Agents for Real-Time Grid Monitoring and Diagn.pdf,10.1109/ACCESS.2026.3683539,ADA,INCLUDE,"IC1,IC2,IC3,IC4"
+66,2026_11480847_CurbAI Making Policy-Safe LLM Agents Work in Real-World Curbside Delivery.pdf,10.1109/ACCESS.2026.3683463,ADA,INCLUDE,IC4
+67,2026_11481053_Beyond Single-Framework Architectures A Systematic Evaluation and Hybrid Design for Scalable Multi-A.pdf,10.1109/ACCESS.2026.3683900,ADA,INCLUDE,IC4
+68,2026_11481496_WildfireKR An LLM-Agent Decision Support Framework for Autonomous Wildfire Spread Simulation in Sout.pdf,10.1109/ACCESS.2026.3683905,ADA,INCLUDE,IC4
+69,2026_11481599_LLM-Driven Multi-Agent Architecture for QoS-Aware Server Recommendation in Mobile-Edge-Cloud Environ.pdf,10.13052/jwe1540-9589.2533,ADA,EXCLUDE,EC6
+70,2026_11489257_Agentic-AI Framework for Integrated Design Implementation Testing and Operation of Digital Twin Netw.pdf,10.1109/OJCOMS.2026.3686199,ADA,EXCLUDE,EC6
+71,2026_11498313_CowNet-AI A Multi-Agent Decision Support Framework for Social NetworkDriven Welfare Insights in Dair.pdf,10.1109/ACCESS.2026.3688544,ADA,INCLUDE,"IC1,IC2,IC3,IC4"
+72,2026_11503237_FARE Financial Agentic Reasoning and Evaluation for Earnings Call Transcripts.pdf,10.1109/ACCESS.2026.3689742,ADA,EXCLUDE,EC6
+73,2026_11506356_Adversarial Machine Learning A 20-Year Survey of Attacks Defenses and Standards.pdf,10.1109/ACCESS.2026.3690620,ADA,EXCLUDE,EC6
+74,2026_11513232_Agentic AI-Based 5G and Beyond Radio Planning Framework.pdf,10.1109/ACCESS.2026.3691411,ADA,EXCLUDE,EC6
+75,2026_11513852_Utilizing Dynamic Context and Static Analysis for Agent-Based Automated Program Repair.pdf,10.1109/ACCESS.2026.3691783,ADA,EXCLUDE,EC6
+76,2026_11517460_Reasoning and Acting ReAct With Multimodal LLMs A Framework for Intent Driven 6G Networks.pdf,10.1109/OJCOMS.2026.3693067,ADA,EXCLUDE,EC6
+77,2026_11517469_A Tutorial on Cognitive Biases in Agentic AI-Driven 6G Autonomous Networks.pdf,10.1109/OJCOMS.2026.3692946,ADA,EXCLUDE,EC6
+78,2026_11520478_EPIC Accelerating Iterative Analytics in HPC Operations with Orchestrated Multi-Agent Systems.pdf,10.23919/ISC.2026.11520478,ADA,EXCLUDE,EC6
+79,2026_11520484_RHAPSODY Execution of Hybrid AI-HPC Workflows at Scale.pdf,10.23919/ISC.2026.11520484,ADA,EXCLUDE,EC6
+80,2026_11520499_Toward Agentic HPC Serving and Evaluating LLM-Powered Agents for Scientific Applications on Leadersh.pdf,10.23919/ISC.2026.11520499,ADA,EXCLUDE,EC6
+81,2026_11523051_Engineering LLM-Based Multiagent Systems A Taxonomy of Emerging Frameworks.pdf,10.1109/MS.2026.3694089,ADA,EXCLUDE,EC6
+82,2026_11526796_ACT A Conceptual Framework for Understanding and Controlling Trustworthiness in Controllable AI.pdf,10.1109/ACCESS.2026.3694817,ADA,INCLUDE,IC4
+83,2026_11526952_Where Shall we Meet Group Meeting Location Recommendation via Preference-Mobility Reasoning with MEE.pdf,10.23919/CHAIN.2026.000007,ADA,EXCLUDE,EC6
+84,2026_11527203_A Neurosymbolic Multi-Agent System for Explainable and Traceable Decision-Making in Organizational C.pdf,10.1109/ACCESS.2026.3695444,ADA,INCLUDE,"IC1,IC2,IC3,IC4"
+85,2026_11535329_An Agentic AI System for Context-Grounded and Deterministic Failure Triage in Data Pipelines.pdf,10.1109/ACCESS.2026.3697110,ADA,EXCLUDE,EC1
+86,2026_11540014_Megatrends in Biomedical AI for Health Care From Data Foundations to Clinical Deployment.pdf,10.1109/MC.2026.3683604,ADA,EXCLUDE,EC6
+87,2026_11540994_From LLM Reasoning to Autonomous AI Agents A Comprehensive Review.pdf,10.1109/ACCESS.2026.3698694,ADA,INCLUDE,IC4
+88,2026_11543298_ALIVE An Agentic Longitudinal IDE-IPA Value Evaluation Framework for Innovation-Driven Enterprise As.pdf,10.1109/ACCESS.2026.3699137,ADA,INCLUDE,IC4
+89,2026_11544085_A Multiscale Attention Aggregation Framework for Agentic Tropical Rainforest Change Analysis and a N.pdf,10.1109/JSTARS.2026.3699394,ADA,EXCLUDE,EC6
+90,2026_11554320_Agentic AI Security in 6G Networks A Survey of Emerging Attack Vectors Vulnerabilities and Defenses.pdf,10.1109/OJCOMS.2026.3700939,ADA,EXCLUDE,EC6
+91,2026_11557130_Dual-Agent Self-Refinement for Scalable Transcript-Based Summarization.pdf,10.1109/ACCESS.2026.3702149,ADA,EXCLUDE,EC6
+92,2026_11558582_Artificial Intelligence Overload A Multilevel Taxonomy and the Path Forward.pdf,10.1109/MIS.2026.3666685,ADA,EXCLUDE,EC6
+93,2026_11559105_From Meetings to Product Vision An Agentic Approach with MARARE.pdf,10.1109/MS.2026.3702383,ADA,EXCLUDE,EC6
+94,2026_11559625_AgenticNav A Hierarchical Multi-Agentic System for LLM-Driven Autonomous Problem-Solving in Robotics.pdf,10.1109/ACCESS.2026.3703330,ADA,EXCLUDE,EC6
+95,2026_11569042_AgentLeak A Benchmark for Internal-Channel Privacy Leakage in Multi-Agent LLM Systems.pdf,10.1109/ACCESS.2026.3704541,ADA,INCLUDE,IC4
+96,2026_11569672_From Rule-Based to Goal-Oriented A Systematic Review of Agentic AI in Education.pdf,10.1109/ACCESS.2026.3704764,ADA,EXCLUDE,EC6
+97,2026_11571804_Eternality in Learning A Three-Stage Conceptual Framework for the Evolution of Generative AI to Infl.pdf,10.1109/ACCESS.2026.3705611,ADA,EXCLUDE,EC6
+98,2026_11573048_LLM-Driven Multi-Agent Framework for Autonomous Network Slice Management Architecture and Proof-of-C.pdf,10.1109/OJCOMS.2026.3705651,ADA,EXCLUDE,EC6
+99,2026_11573150_Distributed Agentic AI Framework for Autonomous Edge-Cloud Service Orchestration.pdf,10.1109/TMLCN.2026.3705714,ADA,INCLUDE,IC1+IC2+IC3+IC4
+100,2026_11574655_Trust-Aware Orchestration Architecture for LLM-Assisted Workflows in Multi-Tenant Enterprise Systems.pdf,10.1109/ACCESS.2026.3706063,ADA,INCLUDE,IC1
+101,2026_11574666_Autonomy in Complexity Cognitive Superiority of Human-Autonomy Systems.pdf,10.1109/ACCESS.2026.3706306,ADA,EXCLUDE,EC1
+102,2026_11575272_Digital Autonomation of Residential Construction Project Lifecycle Management via Agentic-AI-Driven .pdf,10.26599/JIC.2026.9180130,ADA,EXCLUDE,EC6
+103,2026_11575974_Theory-Grounded LLM Societies for Emergent Coordination.pdf,10.1109/ACCESS.2026.3706338,ADA,INCLUDE,IC1+IC2+IC3+IC4
+104,2026_11580353_LLM-Based Intelligent Agents for Cybersecurity A Tutorial and Survey of Automated Vulnerability Disc.pdf,10.1109/ACCESS.2026.3707573,ADA,INCLUDE,IC4
+105,2026_11585835_6G Needs Agents Toward Agentic AI-Native Networks for Autonomous Intelligence.pdf,10.1109/OJCOMS.2026.3707904,ADA,INCLUDE,IC4
+106,2026_11586076_Nested Multi-Agent Reinforcement Learning for Adaptive Resource Management in 6G Network Slicing A M.pdf,10.1109/OJCOMS.2026.3708409,ADA,EXCLUDE,EC1
+107,2026_11593797_Explainable AI in Sovereign Network Defense A Systematic Review of Trustworthy Mechanisms for ISD-WA.pdf,10.1109/ACCESS.2026.3709613,ADA,EXCLUDE,EC1
+108,2026_11598874_ASPIRE An Agentic Decision System for Early Equipment Failure Prediction and Intervention in Industr.pdf,10.1109/ACCESS.2026.3711010,ADA,INCLUDE,IC4
+109,2026_11599534_Multi-Agent Software Development for Automotive Model-Based Graphical Programming.pdf,10.1109/ACCESS.2026.3711515,ADA,INCLUDE,"IC1,IC2,IC3,IC4"
+110,2026_11609268_α3-Bench A Unified Benchmark of Safety Robustness and Efficiency for LLM-Based UAV Agents Over 6G Ne.pdf,10.1109/OJITS.2026.3713296,ADA,INCLUDE,IC4
+111,2026_11611726_Agentic AI for Consumer Health Conceptual Framework Applications and Challenges.pdf,10.1109/MCE.2026.3714084,ADA,INCLUDE,IC4
+112,2026_11614388_Large Language Model Agents in Dynamic Mine Planning Challenges Opportunities and Future Directions.pdf,10.1109/ACCESS.2026.3714775,ADA,EXCLUDE,EC6
+113,2026_11622503_A New Paradigm for Effective LLM-Agent Discovery and Dynamic Creation of Trusted Multiagent Systems .pdf,10.1109/JIOT.2026.3716300,ADA,INCLUDE,IC4
+114,2026_11623202_SLM-A Compact Language-Guided Autonomous Agentic Planner for Risk-Aware Multi-UAV Path Planning.pdf,10.1109/ACCESS.2026.3716684,ADA,EXCLUDE,EC6
+115,2026_11626059_Secure Agentic AI and Multimodal Intelligence in 6G Communication Systems.pdf,10.1109/OJCOMS.2026.3717323,ADA,INCLUDE,"IC1,IC2,IC3,IC4"
+116,2026_11626853_Contamination Percolation in Multi-Agent LLM Systems A Measurement Framework and Benchmark.pdf,10.1109/ACCESS.2026.3717722,ADA,INCLUDE,IC4
+117,2026_11627695_Leveraging Agentic-AI for Adaptable and Dynamic Security in Next-Generation 6G Programmable Networks.pdf,10.1109/MNET.2026.3715656,ADA,EXCLUDE,EC1
+118,2026_11627917_An LLM-Agent-Based Framework for Age of Information Optimization in Heterogeneous Multiple Access Ne.pdf,10.1109/OJCOMS.2026.3718178,ADA,EXCLUDE,EC6
+119,2026_11631832_SYNAPSE Synthetic Network-Traffic Agent Pipeline for Federated Edge Security.pdf,10.1109/ACCESS.2026.3718464,ADA,EXCLUDE,EC6
+120,2026_11640846_A Configuration-Level Comparative Evaluation of Workflow Bundles for Source-Grounded Academic PDF An.pdf,10.1109/ACCESS.2026.3719291,ADA,INCLUDE,IC4
+121,2026_11641460_Agent-Native Applications A New Application Paradigm.pdf,10.1109/ACCESS.2026.3720448,ADA,INCLUDE,IC4
+122,2026_11641551_Beyond Static Agents A Six-Dimensional Taxonomy and Survey of Self-Evolving LLM Agents for Healthcar.pdf,10.1109/ACCESS.2026.3720396,ADA,EXCLUDE,EC6
+123,2026_11641574_TRACE Trustworthy Reasoning for Agentic Chemical Evidence in Antibody-Drug Conjugate Design.pdf,10.1109/ACCESS.2026.3720203,ADA,EXCLUDE,EC1
+124,2026_11641576_Agentic-Defined Networking ADN A Vision Architectural Elements and Future Directions.pdf,10.1109/ACCESS.2026.3720493,ADA,INCLUDE,IC4
+125,2026_11643746_LLM-Guided Multi-Agent Joint Velocity and Spectrum Optimization in Advanced Air Mobility.pdf,10.1109/ACCESS.2026.3721085,ADA,EXCLUDE,EC6
+126,2026_11644324_The Minority Report A Three-Agent LLM Survival Game.pdf,10.1109/TG.2026.3721624,ADA,EXCLUDE,EC6
+127,2026_11644382_UAVBench An Open Benchmark Dataset for Autonomous and Agentic AI UAV Systems via LLM-Generated Fligh.pdf,10.1109/OJVT.2026.3721777,ADA,EXCLUDE,EC6
+128,2026_11644696_A Survey and an Analysis of Conflict Management in O-RAN.pdf,10.1109/OJCOMS.2026.3721736,ADA,EXCLUDE,EC6
+129,2026_11655602_An Explainable Agentic Architecture for Multi-Site Photovoltaic Power Forecasting.pdf,10.1109/ACCESS.2026.3724048,ADA,EXCLUDE,EC1
+130,2026_11657394_AoI-Aware Agentic Federated Mixture-of-Digital-Twin Experts for 6G Vehicular Edge Intelligence.pdf,10.1109/OJCOMS.2026.3724461,ADA,EXCLUDE,EC1
+131,2026_11658683_Persistent Goal-Tracking and Instruction-Driven Reasoning in Sequential Conversation QA.pdf,10.1109/ACCESS.2026.3725149,ADA,INCLUDE,IC1+IC2+IC3+IC4
+132,2026_11660717_A Lightweight Language-Model-Driven Agentic Framework for Intrusion Prediction Detection and Mitigat.pdf,10.1109/OJCOMS.2026.3725365,ADA,EXCLUDE,EC6
+133,2026_11661294_Agentic AI in Healthcare Current Applications Challenges and Future Directions.pdf,10.1109/ACCESS.2026.3725858,ADA,INCLUDE,IC1+IC4
+134,2026_11661318_Explicit Cognitive Allocation A Principle for Governed and Reviewable LLM-Assisted Inquiry.pdf,10.1109/ACCESS.2026.3725913,ADA,EXCLUDE,EC6
+135,2026_11664405_IRAIVI Agentic Framework for Tamil Hate Speech Detection and Counter-Speech Generation Toward Respon.pdf,10.1109/ACCESS.2026.3726522,ADA,EXCLUDE,EC6
+136,2026_11666482_Evil-AI Benchmark An Evaluation Framework for Adversarial Security Assessment of LLM Agents in Smart.pdf,10.1109/ACCESS.2026.3727159,ADA,INCLUDE,IC1
+137,2026_11668741_Conversational AI for Public Administration Form Filling Evaluating Agentic Architectures for Citize.pdf,10.1109/ACCESS.2026.3727913,ADA,INCLUDE,IC4
+138,2026_11670182_Deontic Policies for Runtime Governance of Agentic AI Systems.pdf,10.1109/ICWS72778.2026.00159,ADA,INCLUDE,"IC1,IC2,IC4"
+139,2026_11672728_From EventStorming Artifacts to User Stories A Semi-Automated Requirements Extraction Approach.pdf,10.1109/ACCESS.2026.3728512,ADA,EXCLUDE,EC6
+140,2026_11675809_From Policy to Pipelines Closing the AI Governance Execution Gap.pdf,10.1109/ACCESS.2026.3729556,ADA,EXCLUDE,EC1
+141,2026_11676055_From Large Language Models to Large Action Models Redefining Communication Intelligence in Healthcar.pdf,10.1109/OJCOMS.2026.3730350,ADA,EXCLUDE,EC6
+142,2026_11677092_Descriptor AEGIS Threat Matrix for Agentic AI Systems ATX-1.pdf,10.21227/jr43-0571,ADA,EXCLUDE,EC6
+143,2026_11685983_Agentic AI at the Edge Consumer Devices for Next-Generation Public Safety Over 5G6G.pdf,10.1109/MCE.2026.3731786,ADA,EXCLUDE,EC6
+144,2026_11690561_LLM-Driven Heterogeneous Multi-Agent for Automatic Generation of Railway CTC Test Cases.pdf,10.1109/ACCESS.2026.3733427,ADA,EXCLUDE,EC6
+145,2026_11690917_From Optimization to Autonomy A Survey on Resource Allocation for Network Slicing in O-RAN.pdf,10.1109/OJCOMS.2026.3733812,ADA,EXCLUDE,EC6
+146,2026_11701033_Agentic Semantic Communication Concepts Architectures and Visions.pdf,10.1109/COMST.2026.3735868,ADA,EXCLUDE,EC6
+147,2026_11703585_Agentic AI for Scalable and Robust Optical Systems Control.pdf,10.1109/ACCESS.2026.3736374,ADA,INCLUDE,IC4
+148,2026_11707752_Active Electronic Terahertz Imaging for Industrial Applications From Hardware to the Paradigm Shift .pdf,10.1109/TTHZ.2026.3737223,ADA,EXCLUDE,EC6
+149,2026_11711046_Generative AI-Augmented Multi-Agent DRL for AirGround Integrated Networks Frameworks Case Study and .pdf,,TANPA-DOI,EXCLUDE,EC6
+150,2026_11715697_AI-Driven Agent-Based Urban Digital Twins A Systematic Literature Review.pdf,10.1109/ACCESS.2024.0429000,ADA,EXCLUDE,EC1
+151,2026_11715712_Profiling Massive Multi-Agent System for 6G.pdf,10.1109/MNET.2026.3722689,ADA,EXCLUDE,EC6
+152,2022_9733331_Contextual Text Analytics Framework for Citizen Report Classification A Case Study Using the Indones.pdf,10.1109/ACCESS.2022.3158940,ADA,INCLUDE,IC4
+153,2024_10511080_Core-View Contrastive Learning Network for Building Lightweight Cross-Domain Consultation System.pdf,10.1109/ACCESS.2024.3395330,ADA,INCLUDE,IC1
+154,2024_10591750_Uncovering Concerns of Citizens Through Machine Learning.pdf,10.1109/ACCESS.2024.3426329,ADA,INCLUDE,IC1
+155,2026_11550066_A Generalized Spatio-Temporal Causal Knowledge Graph Framework With Large Language Model-Enhanced Re.pdf,10.1109/ACCESS.2026.3699522,ADA,INCLUDE,IC4
