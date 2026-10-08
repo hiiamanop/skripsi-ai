@@ -1,5 +1,0 @@
-database,date,query_executed,wildcard_count,filters,total_records,retrieved,error
-IEEE Xplore,2026-10-05,String A v1 (prompt),7,openAccess=true tanpa jenis,100,0,tidak dipakai (tanpa filter jenis)
-IEEE Xplore,2026-10-05,String A v2 C2X+C3X,8,"openAccess=true, ContentType:Journals",133,153,"151 OK + 4 gagal + Pati-manual; >133 karena pagination overlap; Kumi-manual di B"
-IEEE Xplore,2026-10-05,String B v1,8,openAccess=true tanpa jenis,3,4,3 grab + Kumi-manual (di luar string)
-IEEE Xplore,2026-10-05,String B varian citizens-petick,8,"openAccess=true, ContentType:Journals",3,0,sama dengan tanpa petik
