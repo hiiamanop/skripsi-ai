@@ -25,7 +25,6 @@ OLLAMA_URL = os.environ.get("OLLAMA_URL", "http://localhost:11434")
 OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "llama3.1")
 CHROMA_DIR = os.environ.get("CHROMA_DIR", "./chroma_db")
 PAPERS_DIR = os.environ.get("PAPERS_DIR", "./papers")
-SLR_DIR = os.environ.get("SLR_DIR", "./slr")
 COLLECTION = "papers"
 CHUNK_SIZE = 1000
 CHUNK_OVERLAP = 200

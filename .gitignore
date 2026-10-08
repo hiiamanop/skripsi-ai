@@ -3,12 +3,8 @@ chroma_db/
 .env
 __pycache__/
 .venv/
-slr/
-grab.log
-grab.pid
-tests/__pycache__/
 *.log
-papers.zip
 .DS_Store
-__MACOSX/
 .pytest_cache/
+literature.csv
+references.bib
