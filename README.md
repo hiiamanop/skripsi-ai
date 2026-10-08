@@ -1,7 +1,15 @@
 # Skripsi-AI
 
-Aplikasi bantu menyiapkan skripsi / tesis / disertasi. Sedang dirancang ulang dari awal.
+Research partner pribadi untuk skripsi / tesis / disertasi. Visi: kumpulkan artikel, baca, simpan ke vector DB, lalu setiap jawaban dan keputusan riset berbasis bukti dari referensi yang terkumpul.
 
-Tools yang sudah ada di `tools/` (dijalankan dari root repo): ambil PDF jurnal (`ieee_grab.py`, `openalex_grab.py`), indeks vektor + tanya (`ingest.py`, `rag.py`, `summarize.py`), BibTeX (`bibtex.py`, `crossref.py`, `export_bib.py`), PRISMA (`report.py`, `reconcile.py`), protokol (`slr_init.py`).
+Status: prototipe CLI di `tools/` (jalankan dari root repo).
+
+| Tahap | Tool |
+|---|---|
+| Kumpul PDF | `ieee_grab.py`, `openalex_grab.py` (deteksi sumber: `grabbers.py`) |
+| Indeks ke vector DB | `ingest.py` |
+| Tanya berbasis bukti | `rag.py` |
+| Ringkas ke CSV | `summarize.py` |
+| BibTeX | `crossref.py`, `bibtex.py`, `export_bib.py` |
 
 Konfigurasi di `.env` (lihat `.env.example`). Tes: `pytest -q tests`.

@@ -1,18 +1,16 @@
 #!/usr/bin/env python3
-"""extraction.csv -> references.bib via Crossref.
+"""literature.csv -> references.bib via Crossref (metadata dicari dari nama file).
 
-Pakai:  .venv/bin/python bibtex.py <project> [-n maks]
+Pakai:  .venv/bin/python bibtex.py [-n maks]
 """
 import argparse
 import csv
 import re
 import time
 
-import config
 import crossref
 
-STOP = {"a", "an", "the", "for", "with", "using", "based", "via", "toward", "from",
-        "multi", "agent", "agents", "agentic", "system", "systems", "framework"}
+STOP = {"a", "an", "the", "for", "with", "using", "based", "via", "toward", "from"}
 
 
 def keywords(pdf):
@@ -38,16 +36,14 @@ def entry(i, meta, pdf):
 
 def main():
     a = argparse.ArgumentParser()
-    a.add_argument("project")
     a.add_argument("-n", "--max", type=int, default=0)
     a = a.parse_args()
-    proj = f"{config.SLR_DIR}/{a.project}"
-    rows = list(csv.DictReader(open(f"{proj}/extraction.csv")))
+    rows = list(csv.DictReader(open("literature.csv")))
     if a.max:
         rows = rows[:a.max]
     ok, miss = [], []
     for r in rows:
-        pdf = r.get("file") or r.get("id", "")
+        pdf = r["file"]
         title = keywords(pdf)
         year = int(pdf[:4]) if pdf[:4].isdigit() else None
         print(f"cari: {title}")
@@ -67,8 +63,8 @@ def main():
             miss.append(pdf)
         time.sleep(2)
     ok = [e for e in ok if e]
-    open(f"{proj}/references.bib", "w").write("".join(ok))
-    print(f"OK {len(ok)}, tak ketemu {len(miss)} -> {proj}/references.bib")
+    open("references.bib", "w").write("".join(ok))
+    print(f"OK {len(ok)}, tak ketemu {len(miss)} -> references.bib")
     for m in miss:
         print("  MISS:", m[:100])
 
