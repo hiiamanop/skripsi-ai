@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Ringkas tiap PDF -> CSV matriks literatur. Resume otomatis via CSV.
 
-Pakai:  .venv/bin/python summarize.py [-n maks] [--redo]
+Pakai:  .venv/bin/python tools/summarize.py [-p proyek] [-n maks] [--redo]
 """
 import argparse
 import csv
@@ -13,7 +13,6 @@ from pypdf import PdfReader
 import config
 import llm
 
-CSV = "literature.csv"
 FIELDS = ["file", "title", "authors", "year", "problem", "method", "result", "doi"]
 
 PROMPT = """Baca paper berikut, jawab JSON saja:
@@ -35,14 +34,17 @@ def main():
     a = argparse.ArgumentParser()
     a.add_argument("-n", "--max", type=int, default=0)
     a.add_argument("--redo", action="store_true")
+    config.add_project_arg(a)
     a = a.parse_args()
+    proj = config.project_from(a).ensure()
+    CSV = proj.literature
 
     done = set()
     if os.path.exists(CSV) and not a.redo:
         with open(CSV) as f:
             done = {r["file"] for r in csv.DictReader(f)}
 
-    pdfs = sorted(f for f in os.listdir(config.PAPERS_DIR) if f.endswith(".pdf"))
+    pdfs = sorted(f for f in os.listdir(proj.papers) if f.endswith(".pdf"))
     pdfs = [f for f in pdfs if f not in done]
     if a.max:
         pdfs = pdfs[:a.max]
@@ -55,7 +57,7 @@ def main():
         for i, pdf in enumerate(pdfs, 1):
             try:
                 text = "\n".join((p.extract_text() or "")
-                                 for p in PdfReader(f"{config.PAPERS_DIR}/{pdf}").pages[:4])
+                                 for p in PdfReader(f"{proj.papers}/{pdf}").pages[:4])
                 w.writerow({"file": pdf, **summarize(text)})
                 print(f"[{i}/{len(pdfs)}] OK {pdf}")
             except Exception as e:

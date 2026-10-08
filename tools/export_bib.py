@@ -1,13 +1,19 @@
 #!/usr/bin/env python3
-"""Export literature.csv -> references.bib (BibTeX).
+"""Export literature.csv proyek -> references.bib (BibTeX).
 
-Pakai:  .venv/bin/python export_bib.py
+Pakai:  .venv/bin/python tools/export_bib.py [-p proyek]
 """
+import argparse
 import csv
 import re
 
-rows = list(csv.DictReader(open("literature.csv")))
-with open("references.bib", "w") as f:
+import config
+
+a = argparse.ArgumentParser()
+config.add_project_arg(a)
+proj = config.project_from(a.parse_args())
+rows = list(csv.DictReader(open(proj.literature)))
+with open(proj.bib, "w") as f:
     for r in rows:
         if not r.get("title"):
             continue
@@ -15,4 +21,4 @@ with open("references.bib", "w") as f:
         f.write(f"@article{{{key},\n  title={{{r['title']}}},\n"
                 f"  author={{{r['authors']}}},\n  year={{{r.get('year', '')}}},\n"
                 f"  doi={{{r.get('doi', '')}}},\n  file={{{r['file']}}}\n}}\n\n")
-print(f"{len(rows)} baris -> references.bib")
+print(f"{len(rows)} baris -> {proj.bib}")

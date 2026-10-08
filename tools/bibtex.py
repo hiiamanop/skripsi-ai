@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """literature.csv -> references.bib via Crossref (metadata dicari dari nama file).
 
-Pakai:  .venv/bin/python bibtex.py [-n maks]
+Pakai:  .venv/bin/python bibtex.py [-p proyek] [-n maks]
 """
 import argparse
 import csv
 import re
 import time
 
+import config
 import crossref
 
 STOP = {"a", "an", "the", "for", "with", "using", "based", "via", "toward", "from"}
@@ -37,8 +38,10 @@ def entry(i, meta, pdf):
 def main():
     a = argparse.ArgumentParser()
     a.add_argument("-n", "--max", type=int, default=0)
+    config.add_project_arg(a)
     a = a.parse_args()
-    rows = list(csv.DictReader(open("literature.csv")))
+    proj = config.project_from(a)
+    rows = list(csv.DictReader(open(proj.literature)))
     if a.max:
         rows = rows[:a.max]
     ok, miss = [], []
@@ -63,8 +66,8 @@ def main():
             miss.append(pdf)
         time.sleep(2)
     ok = [e for e in ok if e]
-    open("references.bib", "w").write("".join(ok))
-    print(f"OK {len(ok)}, tak ketemu {len(miss)} -> references.bib")
+    open(proj.bib, "w").write("".join(ok))
+    print(f"OK {len(ok)}, tak ketemu {len(miss)} -> {proj.bib}")
     for m in miss:
         print("  MISS:", m[:100])
 

@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """Grab semua PDF open access dari URL hasil search IEEE Xplore.
 
-Pakai:  python3 ieee_grab.py "<url search IEEE | queryText>" [-o folder] [-n maks] [-d delay]
+Pakai:  python3 ieee_grab.py "<url search IEEE | queryText>" [-p proyek] [-o folder] [-n maks] [-d delay]
 Stdlib only.
 """
 import argparse, http.cookiejar, json, os, re, sys, time
 import urllib.error, urllib.parse, urllib.request
 
-from grabbers import detect_source
+import config
+import papermeta
 
 BASE = "https://ieeexplore.ieee.org"
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/124 Safari/537.36"
@@ -71,14 +72,13 @@ def fname(rec):
 def main():
     a = argparse.ArgumentParser()
     a.add_argument("query_or_url")
-    a.add_argument("-o", "--out", default="papers")
-    a.add_argument("--source", default="ieee")
+    a.add_argument("-o", "--out", default=None, help="folder tujuan (default: papers/ proyek)")
     a.add_argument("-n", "--max", type=int, default=0, help="batas jumlah paper (0 = semua)")
     a.add_argument("-d", "--delay", type=float, default=2.0, help="jeda antar download (detik)")
+    config.add_project_arg(a)
     a = a.parse_args()
 
-    if a.out == "papers":
-        a.out = f"papers/{detect_source(a.query_or_url) if a.source == 'ieee' else a.source}"
+    a.out = a.out or config.project_from(a).ensure().papers
     os.makedirs(a.out, exist_ok=True)
     url, p = build_payload(a.query_or_url)
     op.open(url, timeout=60).read()  # ambil cookie sesi
@@ -107,6 +107,7 @@ def main():
                 continue
             try:
                 download(r, path)
+                papermeta.save(path, papermeta.from_ieee(r))
                 ok += 1
                 print(f"[{seen}] OK   {os.path.basename(path)}")
             except Exception as e:

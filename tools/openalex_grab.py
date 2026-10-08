@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Grab PDF open access dari link OpenAlex atau query mentah.
 
-Pakai:  .venv/bin/python openalex_grab.py "<url openalex | query>" [-o papers/openalex] [-n maks] [-d delay]
+Pakai:  .venv/bin/python openalex_grab.py "<url openalex | query>" [-p proyek] [-o folder] [-n maks] [-d delay]
 Stdlib only.
 """
 import argparse
@@ -13,6 +13,8 @@ import time
 import urllib.parse
 import urllib.request
 
+import config
+import papermeta
 from grabbers import BaseGrabber
 
 API = "https://api.openalex.org/works"
@@ -106,6 +108,7 @@ class OpenAlexGrabber(BaseGrabber):
                 for url in urls:  # coba tiap lokasi OA sampai dapat
                     try:
                         download(url, path)
+                        papermeta.save(path, papermeta.from_openalex(w))
                         ok += 1
                         print(f"[{seen}] OK   {os.path.basename(path)}")
                         break
@@ -125,13 +128,15 @@ class OpenAlexGrabber(BaseGrabber):
 def main():
     a = argparse.ArgumentParser()
     a.add_argument("query_or_url")
-    a.add_argument("-o", "--out", default="papers/openalex")
+    a.add_argument("-o", "--out", default=None, help="folder tujuan (default: papers/ proyek)")
     a.add_argument("-n", "--max", type=int, default=0)
     a.add_argument("-d", "--delay", type=float, default=1.0)
     a.add_argument("--mailto", default=None)
+    config.add_project_arg(a)
     a = a.parse_args()
+    out = a.out or config.project_from(a).ensure().papers
     try:
-        OpenAlexGrabber().run(a.query_or_url, a.out, a.max, a.delay, a.mailto)
+        OpenAlexGrabber().run(a.query_or_url, out, a.max, a.delay, a.mailto)
     except Exception as e:
         sys.exit(f"gagal: {e}")
 

@@ -36,7 +36,7 @@ def chat_ollama(messages):
 
 def chat_ninerouter(messages):
     d = _post(f"{config.NINEROUTER_URL}/v1/chat/completions",
-              {"model": config.NINEROUTER_MODEL, "messages": messages},
+              {"model": config.NINEROUTER_MODEL, "messages": messages, "stream": False},
               {"Authorization": f"Bearer {config.NINEROUTER_API_KEY}"})
     return d["choices"][0]["message"]["content"]
 
