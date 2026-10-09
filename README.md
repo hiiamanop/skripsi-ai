@@ -2,13 +2,15 @@
 
 Research partner pribadi untuk skripsi / tesis / disertasi. Visi: kumpulkan artikel, baca, simpan ke vector DB, lalu setiap jawaban dan keputusan riset berbasis bukti dari referensi yang terkumpul.
 
-Status: prototipe CLI di `tools/` (jalankan dari root repo).
+Mulai: `python run.py -p <proyek>` membuka sesi percakapan (cari artikel, index, tanya berbukti, catat keputusan). Percakapan, jawaban, keputusan, dan catatan tersimpan di `data/<proyek>/memory.db`; lanjutkan dengan `--resume`, lihat sesi dengan `--sesi`.
+
+Tool tunggal di `tools/` (jalankan dari root repo) tetap bisa dipakai tanpa agen.
 
 | Tahap | Tool |
 |---|---|
 | Kumpul PDF | `ieee_grab.py`, `openalex_grab.py`, `scopus_grab.py` (cari via Scopus incl. Elsevier OA, PDF via OpenAlex; perlu `ELSEVIER_API_KEY`) |
 | Indeks ke vector DB | `ingest.py` |
-| Tanya berbasis bukti | `rag.py` (sitasi `Penulis Tahun, hlm. X`, menolak jawab bila bukti lemah, log di `data/<proyek>/decisions.jsonl`) |
+| Tanya berbasis bukti | `rag.py` (sitasi `Penulis Tahun, hlm. X`, menolak jawab bila bukti lemah, tercatat di `data/<proyek>/memory.db`) |
 | Ringkas ke CSV | `summarize.py` |
 | BibTeX | `crossref.py`, `bibtex.py`, `export_bib.py` |
 

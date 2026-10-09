@@ -122,9 +122,9 @@ def test_evidence_cite_and_select():
            "metadatas": [[{}, {}, {}, {}]], "documents": [["a", refs, "c", "d"]]}
     assert [t for _, _, t in ev.select(res, k=5, max_dist=0.4)] == ["a", "c"]  # daftar pustaka & jarak jauh keluar
     assert ev.select(res, k=1, max_dist=0.4)[0][2] == "a"
-    assert ev.cited_ids("x [S1] y [S3] z [S9]", 3) == ([1, 3], [9])
 
 def test_ask_refuses_without_evidence(tmp_path, monkeypatch):
+    import pytest
     import json, config, rag, store
     monkeypatch.setattr(config, "PROJECTS_DIR", str(tmp_path))
     p = config.Project("a").ensure()
@@ -136,8 +136,14 @@ def test_ask_refuses_without_evidence(tmp_path, monkeypatch):
     r = rag.ask(p, "apa saja")
     assert r["status"] == "no_evidence" and r["evidence"] == []
     monkeypatch.setattr(rag.llm, "embed", lambda ts: [[1.0, 0.0]])
-    monkeypatch.setattr(rag.llm, "chat", lambda m: ("Jawab [S1] dan [S4]", "fake"))
+    raw = json.dumps({"klaim": [{"teks": "x ada", "bukti": "S1", "kutipan": "x"}]})
+    monkeypatch.setattr(rag.llm, "chat", lambda m: (raw, "fake"))
     r = rag.ask(p, "apa saja")
-    assert r["status"] == "answered" and r["cited"] == [1] and r["invalid_cites"] == [4]
-    log = [json.loads(l) for l in open(f"{p.dir}/decisions.jsonl")]
-    assert [x["status"] for x in log] == ["no_evidence", "answered"] and log[1]["evidence"][0]["file"] == "f"
+    assert r["status"] == "unverified" and r["claims"][0]["reason"] == "kutipan terlalu pendek"
+    import memory
+    m = memory.Memory(p)
+    rows = m.db.execute("select id, status from answers order by id").fetchall()
+    assert [x["status"] for x in rows] == ["no_evidence", "unverified"] and r["answer_id"] == rows[1]["id"]
+    assert m.answer(r["answer_id"])["evidence"][0]["file"] == "f"
+    with pytest.raises(ValueError):  # jawaban tak terverifikasi tak bisa jadi dasar keputusan
+        m.add_decision("pakai x", r["answer_id"])

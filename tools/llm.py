@@ -41,6 +41,20 @@ def chat_ninerouter(messages):
     return d["choices"][0]["message"]["content"]
 
 
+def chat_tools(messages, tools=None):
+    """Satu giliran chat dengan tool calling. Return message dict (content, tool_calls).
+    Tanpa fallback Ollama: model lokal kecil tak andal untuk tool calling."""
+    if config.LLM_BACKEND == "ninerouter":
+        url, key, model = (f"{config.NINEROUTER_URL}/v1/chat/completions",
+                           config.NINEROUTER_API_KEY, config.NINEROUTER_MODEL)
+    else:
+        url, key, model = ("https://openrouter.ai/api/v1/chat/completions",
+                           config.OPENROUTER_API_KEY, config.OPENROUTER_CHAT_MODEL)
+    payload = {"model": model, "messages": messages, "stream": False}
+    if tools:
+        payload["tools"] = tools
+    return _post(url, payload, {"Authorization": f"Bearer {key}"})["choices"][0]["message"]
+
 def chat(messages):
     """Chat via backend config.LLM_BACKEND (openrouter | ninerouter), fallback Ollama."""
     try:

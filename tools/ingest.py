@@ -53,22 +53,18 @@ def ingest_one(col, f, pages, meta):
     return len(items)
 
 
-def main():
-    a = argparse.ArgumentParser()
-    a.add_argument("-n", "--max", type=int, default=0)
-    a.add_argument("--reindex", action="store_true")
-    config.add_project_arg(a)
-    a = a.parse_args()
-    proj = config.project_from(a).ensure()
-    col = store.open_collection(proj, create=True, reset=a.reindex)
-
+def ingest_project(proj, max_n=0, reindex=False):
+    """Index PDF proyek yang belum ada di DB. Return (ok, skip, gagal)."""
+    col = store.open_collection(proj, create=True, reset=reindex)
     pdfs = sorted(f for f in os.listdir(proj.papers) if f.endswith(".pdf"))
-    if a.max:
-        pdfs = pdfs[:a.max]
+    if max_n:
+        pdfs = pdfs[:max_n]
     print(f"{len(pdfs)} PDF")
+    ok = skip = fail = 0
     for f in pdfs:
         if col.get(where={"file": f}, limit=1)["ids"]:
             print(f"skip {f}")
+            skip += 1
             continue
         path = f"{proj.papers}/{f}"
         try:
@@ -77,9 +73,22 @@ def main():
             n = ingest_one(col, f, pages, meta)
         except Exception as e:
             print(f"GAGAL {f}: {str(e)[:100]}")
+            fail += 1
             continue
         note = "" if any(t.strip() for t in pages) else " [PDF tanpa teks (scan?), hanya abstrak]"
         print(f"{'OK' if n else 'KOSONG'} {f} ({n} chunk, meta={meta['source']}){note}")
+        ok += bool(n)
+    return ok, skip, fail
+
+
+def main():
+    a = argparse.ArgumentParser()
+    a.add_argument("-n", "--max", type=int, default=0)
+    a.add_argument("--reindex", action="store_true")
+    config.add_project_arg(a)
+    a = a.parse_args()
+    proj = config.project_from(a).ensure()
+    ingest_project(proj, a.max, a.reindex)
 
 
 if __name__ == "__main__":
