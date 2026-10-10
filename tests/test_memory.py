@@ -92,3 +92,12 @@ def test_notes_and_working_memory_budget(mem):
     for i in range(300):
         mem.add_note("catatan panjang " * 20)
     assert len(mem.working_memory(max_chars=2000)) <= 2000
+
+
+def test_last_session_skips_empty_sessions(mem):
+    assert mem.last_session() is None  # belum ada sesi
+    s1 = mem.new_session()
+    mem.add_message(s1, "user", "isi")
+    mem.new_session()  # sesi kosong lebih baru
+    mem.new_session()
+    assert mem.last_session() == s1

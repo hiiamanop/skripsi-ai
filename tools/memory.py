@@ -75,8 +75,8 @@ class Memory:
             return self.db.execute("insert into sessions(started, title) values(?,?)", (now(), title)).lastrowid
 
     def last_session(self):
-        r = self.db.execute("select max(id) from sessions").fetchone()[0]
-        return r
+        """Sesi terakhir yang punya pesan; sesi kosong (dibuka lalu langsung ditutup) dilewati."""
+        return self.db.execute("select max(session_id) from messages").fetchone()[0]
 
     def sessions(self, limit=20):
         return [dict(r) for r in self.db.execute(
