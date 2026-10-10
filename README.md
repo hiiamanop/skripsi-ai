@@ -10,12 +10,16 @@ Butuh [uv](https://docs.astral.sh/uv/). Dari folder kerja skripsi Anda:
 uvx skripsi-ai -p skripsi        # nama proyek bebas; data tersimpan di ./data/skripsi/
 ```
 
-Isi `.env` di folder itu (kunci API tidak ikut paket):
+Saat pertama jalan, aplikasi meminta API key [OpenRouter](https://openrouter.ai/keys) (ketikan tersembunyi), menguji koneksinya, dan baru masuk ke antarmuka bila lolos.
+Kunci disimpan di `~/.config/skripsi-ai/credentials.json` (izin 0600, di luar folder proyek). Perintah terkait:
 
 ```
-OPENROUTER_API_KEY=...           # LLM dan embedding
-ELSEVIER_API_KEY=...             # opsional, hanya untuk sumber Scopus
+skripsi-ai --login               # masukkan ulang kunci
+skripsi-ai --logout              # hapus kunci tersimpan
 ```
+
+Alternatif: isi `OPENROUTER_API_KEY` di `.env` folder kerja (menang atas kunci tersimpan; tetap dites tiap start). Opsional: `ELSEVIER_API_KEY` untuk sumber Scopus.
+Model bahasa bawaan: `deepseek/deepseek-v4.1-flash` (ubah dengan `OPENROUTER_CHAT_MODEL`).
 
 Dalam sesi, ketik biasa (cari artikel, index, tanya, catat keputusan) atau perintah `/bantuan`.
 Lanjutkan sesi: `uvx skripsi-ai -p skripsi --resume`. Daftar sesi: `--sesi`.

@@ -1,6 +1,8 @@
-"""Config RAG: baca .env via stdlib."""
+"""Config RAG: baca .env via stdlib; kunci OpenRouter dari env/.env, atau dari `skripsi-ai --login`."""
 import os
 import re
+
+from . import auth
 
 
 def load_env(path=".env"):
@@ -15,9 +17,10 @@ def load_env(path=".env"):
 
 load_env()
 
-OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
+OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY") or auth.load_key() or ""  # env/.env menang atas hasil login
 OPENROUTER_EMBED_MODEL = os.environ.get("OPENROUTER_EMBED_MODEL", "qwen/qwen3-embedding-8b")
-OPENROUTER_CHAT_MODEL = os.environ.get("OPENROUTER_CHAT_MODEL", "openai/gpt-4o-mini")
+# id disematkan persis (bukan alias -latest yang bisa berganti); lolos tests/eval_scope.py 14/14 dan verifikasi kutipan 8/8
+OPENROUTER_CHAT_MODEL = os.environ.get("OPENROUTER_CHAT_MODEL", "deepseek/deepseek-v4.1-flash")
 NINEROUTER_URL = os.environ.get("NINEROUTER_URL", "http://localhost:20128")
 NINEROUTER_API_KEY = os.environ.get("NINEROUTER_API_KEY", "")
 NINEROUTER_MODEL = os.environ.get("NINEROUTER_MODEL", "main")
