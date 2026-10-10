@@ -1,10 +1,7 @@
-papers/
-chroma_db/
+data/
 .env
 __pycache__/
 .venv/
 *.log
 .DS_Store
 .pytest_cache/
-literature.csv
-references.bib

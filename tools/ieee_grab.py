@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 """Grab semua PDF open access dari URL hasil search IEEE Xplore.
 
-Pakai:  python3 ieee_grab.py "<url search IEEE | queryText>" [-o folder] [-n maks] [-d delay]
+Pakai:  python3 ieee_grab.py "<url search IEEE | queryText>" [-p proyek] [-o folder] [-n maks] [-d delay]
 Stdlib only.
 """
 import argparse, http.cookiejar, json, os, re, sys, time
 import urllib.error, urllib.parse, urllib.request
 
-from grabbers import detect_source
+import config
+import papermeta
+from grabbers import BaseGrabber
 
 BASE = "https://ieeexplore.ieee.org"
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/124 Safari/537.36"
@@ -68,55 +70,65 @@ def fname(rec):
     return f"{rec.get('publicationYear', '')}_{rec['articleNumber']}_{t}.pdf"
 
 
+class IeeeGrabber(BaseGrabber):
+    source = "ieee"
+
+    def run(self, query_or_url, out, max_n=0, delay=2.0):
+        os.makedirs(out, exist_ok=True)
+        url, p = build_payload(query_or_url)
+        op.open(url, timeout=60).read()  # ambil cookie sesi
+        ok = skip = fail = seen = 0
+        page = 1
+        while True:
+            try:
+                d = search(url, p, page)
+            except urllib.error.URLError as e:
+                raise RuntimeError(f"search gagal: {e}")
+            recs = d.get("records") or []
+            if not recs:
+                break
+            if page == 1:
+                print(f"Total hasil: {d.get('totalRecords')}")
+            for r in recs:
+                if max_n and seen >= max_n:
+                    break
+                seen += 1
+                path = os.path.join(out, fname(r))
+                if os.path.exists(path):
+                    skip += 1
+                    continue
+                if r.get("accessType", {}).get("type") != "open-access":
+                    skip += 1
+                    continue
+                try:
+                    download(r, path)
+                    papermeta.save(path, papermeta.from_ieee(r))
+                    ok += 1
+                    print(f"[{seen}] OK   {os.path.basename(path)}")
+                except Exception as e:
+                    fail += 1
+                    print(f"[{seen}] GAGAL {r['articleNumber']}: {e}")
+                time.sleep(delay)
+            if (max_n and seen >= max_n) or page >= d.get("totalPages", 0):
+                break
+            page += 1
+        print(f"Selesai. ok={ok} skip={skip} gagal={fail} -> {out}/")
+        return ok, skip, fail
+
+
 def main():
     a = argparse.ArgumentParser()
     a.add_argument("query_or_url")
-    a.add_argument("-o", "--out", default="papers")
-    a.add_argument("--source", default="ieee")
+    a.add_argument("-o", "--out", default=None, help="folder tujuan (default: papers/ proyek)")
     a.add_argument("-n", "--max", type=int, default=0, help="batas jumlah paper (0 = semua)")
     a.add_argument("-d", "--delay", type=float, default=2.0, help="jeda antar download (detik)")
+    config.add_project_arg(a)
     a = a.parse_args()
-
-    if a.out == "papers":
-        a.out = f"papers/{detect_source(a.query_or_url) if a.source == 'ieee' else a.source}"
-    os.makedirs(a.out, exist_ok=True)
-    url, p = build_payload(a.query_or_url)
-    op.open(url, timeout=60).read()  # ambil cookie sesi
-    ok = skip = fail = seen = 0
-    page = 1
-    while True:
-        try:
-            d = search(url, p, page)
-        except urllib.error.URLError as e:
-            sys.exit(f"search gagal: {e}")
-        recs = d.get("records") or []
-        if not recs:
-            break
-        if page == 1:
-            print(f"Total hasil: {d.get('totalRecords')}")
-        for r in recs:
-            if a.max and seen >= a.max:
-                break
-            seen += 1
-            path = os.path.join(a.out, fname(r))
-            if os.path.exists(path):
-                skip += 1
-                continue
-            if r.get("accessType", {}).get("type") != "open-access":
-                skip += 1
-                continue
-            try:
-                download(r, path)
-                ok += 1
-                print(f"[{seen}] OK   {os.path.basename(path)}")
-            except Exception as e:
-                fail += 1
-                print(f"[{seen}] GAGAL {r['articleNumber']}: {e}")
-            time.sleep(a.delay)
-        if (a.max and seen >= a.max) or page >= d.get("totalPages", 0):
-            break
-        page += 1
-    print(f"Selesai. ok={ok} skip={skip} gagal={fail} -> {a.out}/")
+    out = a.out or config.project_from(a).ensure().papers
+    try:
+        IeeeGrabber().run(a.query_or_url, out, a.max, a.delay)
+    except Exception as e:
+        sys.exit(f"gagal: {e}")
 
 
 if __name__ == "__main__":
