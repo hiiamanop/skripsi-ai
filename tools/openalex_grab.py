@@ -21,8 +21,11 @@ API = "https://api.openalex.org/works"
 UA = "SkripsiAI/1.0 (mailto:research@example.com)"
 
 
-def build_params(arg):
-    """Return dict param API dari link openalex atau query mentah."""
+IEEE_PUBLISHER = "P4310319808"  # induk penerbit IEEE di OpenAlex; IEEE punya grabber sendiri
+
+
+def build_params(arg, skip_ieee=False):
+    """Return dict param API dari link openalex atau query mentah. skip_ieee: kecualikan terbitan IEEE."""
     if arg.startswith("http"):
         qs = urllib.parse.parse_qs(urllib.parse.urlparse(arg).query)
         p = {k: v[0] for k, v in qs.items()}
@@ -31,6 +34,8 @@ def build_params(arg):
     f = p.get("filter", "")
     if "is_oa" not in f:
         p["filter"] = f + ",is_oa:true" if f else "is_oa:true"
+    if skip_ieee:
+        p["filter"] += f",primary_location.source.host_organization_lineage:!{IEEE_PUBLISHER}"
     p["per-page"] = 100
     return p
 
@@ -80,9 +85,9 @@ def download(url, path):
 class OpenAlexGrabber(BaseGrabber):
     source = "openalex"
 
-    def run(self, query_or_url, out="papers/openalex", max_n=0, delay=1.0, mailto=None):
+    def run(self, query_or_url, out="papers/openalex", max_n=0, delay=1.0, mailto=None, skip_ieee=False):
         os.makedirs(out, exist_ok=True)
-        params = build_params(query_or_url)
+        params = build_params(query_or_url, skip_ieee)
         ok = skip = fail = seen = page = 0
         page = 1
         while True:
@@ -132,11 +137,12 @@ def main():
     a.add_argument("-n", "--max", type=int, default=0)
     a.add_argument("-d", "--delay", type=float, default=1.0)
     a.add_argument("--mailto", default=None)
+    a.add_argument("--tanpa-ieee", action="store_true", help="kecualikan terbitan IEEE (pakai ieee_grab.py)")
     config.add_project_arg(a)
     a = a.parse_args()
     out = a.out or config.project_from(a).ensure().papers
     try:
-        OpenAlexGrabber().run(a.query_or_url, out, a.max, a.delay, a.mailto)
+        OpenAlexGrabber().run(a.query_or_url, out, a.max, a.delay, a.mailto, a.tanpa_ieee)
     except Exception as e:
         sys.exit(f"gagal: {e}")
 

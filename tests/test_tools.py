@@ -30,6 +30,9 @@ def test_openalex_params():
     assert p["search"] == "trust" and "is_oa" in p["filter"]
     q = build_params("raw query")
     assert q["search"] == "raw query" and q["filter"] == "is_oa:true"
+    x = build_params("raw query", skip_ieee=True)
+    assert x["filter"] == "is_oa:true,primary_location.source.host_organization_lineage:!P4310319808"
+    assert "host_organization_lineage" not in build_params("raw query")["filter"]
     w = {"id": "https://openalex.org/W1", "publication_year": 2021, "display_name": "T!",
          "best_oa_location": {"pdf_url": "http://a.pdf"},
          "locations": [{"is_oa": True, "pdf_url": "http://b.pdf"}]}
