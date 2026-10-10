@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Ringkas tiap PDF -> CSV matriks literatur. Resume otomatis via CSV.
 
-Pakai:  .venv/bin/python tools/summarize.py [-p proyek] [-n maks] [--redo]
+Pakai:  python -m skripsi_ai.summarize [-p proyek] [-n maks] [--redo]
 """
 import argparse
 import csv
@@ -10,8 +10,8 @@ import os
 
 from pypdf import PdfReader
 
-import config
-import llm
+from . import config
+from . import llm
 
 FIELDS = ["file", "title", "authors", "year", "problem", "method", "result", "doi"]
 

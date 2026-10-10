@@ -8,14 +8,14 @@ import os
 from dataclasses import dataclass
 from typing import Callable
 
-import ingest
-import llm
-import papermeta
-import rag
-import store
-from ieee_grab import IeeeGrabber
-from openalex_grab import OpenAlexGrabber
-from scopus_grab import ScopusGrabber
+from . import ingest
+from . import llm
+from . import papermeta
+from . import rag
+from . import store
+from .ieee_grab import IeeeGrabber
+from .openalex_grab import OpenAlexGrabber
+from .scopus_grab import ScopusGrabber
 
 MAX_TOOL_CALLS = 8      # per giliran pengguna
 MAX_TOOL_CHARS = 6000   # hasil tool yang dikirim ke LLM (tersimpan utuh di DB)
@@ -84,8 +84,9 @@ def trim_history(msgs, n=HISTORY_MSGS):
 
 class Agent:
     def __init__(self, mem, sid, tools, system, chat=llm.chat_tools, confirm=lambda t: False, out=print,
-                 history=()):
+                 history=(), on_tool=None):
         self.mem, self.sid, self.chat, self.confirm, self.out = mem, sid, chat, confirm, out
+        self.on_tool = on_tool  # on_tool(nama, args) dipanggil tepat sebelum tool dijalankan
         self.tools = {t.name: t for t in tools}
         self.schemas = [t.schema() for t in tools]
         self.system = {"role": "system", "content": system}
@@ -117,6 +118,8 @@ class Agent:
             return "dibatalkan: batas panggilan tool per giliran tercapai"
         if t.describe and not self.confirm(t.describe(args)):
             return "ditolak pengguna. Jangan ulangi kecuali pengguna memintanya."
+        if self.on_tool:
+            self.on_tool(name, args)
         try:
             r = t.fn(**args)
         except (Exception, SystemExit) as e:  # kegagalan tool dilaporkan ke model, sesi tetap jalan
@@ -172,7 +175,7 @@ def build_tools(proj, mem, sid, out=print):
         rows = []
         for f in pdfs[:100]:
             m = papermeta.load(f"{proj.papers}/{f}") or {}
-            rows.append({"file": f[:60], "title": (m.get("title") or "")[:80], "year": m.get("year"),
+            rows.append({"file": f[:60], "title": (m.get("title") or "")[:140], "year": m.get("year"),
                          "first_author": (m.get("authors") or "").split(" and ")[0],
                          "meta": m.get("source", "tanpa"), "indexed": f in indexed})
         return {"total_pdf": len(pdfs), "indexed": sum(f in indexed for f in pdfs), "daftar": rows}

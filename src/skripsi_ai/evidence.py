@@ -3,7 +3,7 @@ import json
 import re
 import unicodedata
 
-import config
+from . import config
 
 
 def cite(m):

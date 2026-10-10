@@ -2,7 +2,7 @@
 import json
 import urllib.request
 
-import config
+from . import config
 
 
 def _post(url, payload, headers=None, timeout=120):

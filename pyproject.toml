@@ -1,0 +1,22 @@
+[project]
+name = "skripsi-ai"
+version = "0.1.0"
+description = "Research partner untuk skripsi/tesis/disertasi: kumpulkan artikel, index ke vector DB, tanya dan putuskan berdasarkan bukti."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "chromadb",
+    "pypdf",
+    "prompt_toolkit",
+    "rich",
+]
+
+[project.scripts]
+skripsi-ai = "skripsi_ai.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.12.23,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = ["pytest"]

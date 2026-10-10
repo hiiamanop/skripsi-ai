@@ -5,16 +5,16 @@ Bukti tak cukup (jarak di atas ambang) -> tidak memanggil LLM. Jawaban = klaim b
 kutipannya terbukti ada (verbatim) di chunk rujukannya yang ditampilkan.
 Setiap tanya dicatat di tabel answers (data/<proyek>/memory.db): pertanyaan, jawaban, bukti, jarak.
 
-Pakai:  python3 tools/rag.py "pertanyaan" [-p proyek] [-k top_k] [--max-dist 0.4]
+Pakai:  python -m skripsi_ai.rag "pertanyaan" [-p proyek] [-k top_k] [--max-dist 0.4]
 """
 import argparse
 import time
 
-import config
-import evidence
-import llm
-import memory
-import store
+from . import config
+from . import evidence
+from . import llm
+from . import memory
+from . import store
 
 SYSTEM = ("Kamu asisten riset. Jawab HANYA dari bukti [S1], [S2], ... yang diberikan. "
           'Keluarkan JSON saja: {"klaim": [{"teks": "klaim dalam bahasa pertanyaan", "bukti": "S2", '

@@ -2,24 +2,32 @@
 
 Research partner pribadi untuk skripsi / tesis / disertasi. Visi: kumpulkan artikel, baca, simpan ke vector DB, lalu setiap jawaban dan keputusan riset berbasis bukti dari referensi yang terkumpul.
 
-Mulai: `python run.py -p <proyek>` membuka sesi percakapan (cari artikel, index, tanya berbukti, catat keputusan). Percakapan, jawaban, keputusan, dan catatan tersimpan di `data/<proyek>/memory.db`; lanjutkan dengan `--resume`, lihat sesi dengan `--sesi`.
+## Pakai
 
-Tool tunggal di `tools/` (jalankan dari root repo) tetap bisa dipakai tanpa agen.
-
-| Tahap | Tool |
-|---|---|
-| Kumpul PDF | `ieee_grab.py`, `openalex_grab.py`, `scopus_grab.py` (cari via Scopus incl. Elsevier OA, PDF via OpenAlex; perlu `ELSEVIER_API_KEY`) |
-| Indeks ke vector DB | `ingest.py` |
-| Tanya berbasis bukti | `rag.py` (sitasi `Penulis Tahun, hlm. X`, menolak jawab bila bukti lemah, tercatat di `data/<proyek>/memory.db`) |
-| Ringkas ke CSV | `summarize.py` |
-| BibTeX | `crossref.py`, `bibtex.py`, `export_bib.py` |
-
-Semua tool menerima `-p <proyek>` (default `default`). Satu proyek = satu folder `data/<proyek>/` berisi `papers/`, `chroma/`, `literature.csv`, `references.bib`, terisolasi dari proyek lain. Contoh:
+Butuh [uv](https://docs.astral.sh/uv/). Dari folder kerja skripsi Anda:
 
 ```
-python tools/openalex_grab.py "graph neural network" -p skripsi-a -n 20
-python tools/ingest.py -p skripsi-a
-python tools/rag.py "apa metode utamanya?" -p skripsi-a
+uvx skripsi-ai -p skripsi        # nama proyek bebas; data tersimpan di ./data/skripsi/
 ```
 
-Konfigurasi di `.env` (lihat `.env.example`). Tes: `pytest -q tests`.
+Isi `.env` di folder itu (kunci API tidak ikut paket):
+
+```
+OPENROUTER_API_KEY=...           # LLM dan embedding
+ELSEVIER_API_KEY=...             # opsional, hanya untuk sumber Scopus
+```
+
+Dalam sesi, ketik biasa (cari artikel, index, tanya, catat keputusan) atau perintah `/bantuan`.
+Lanjutkan sesi: `uvx skripsi-ai -p skripsi --resume`. Daftar sesi: `--sesi`.
+Percakapan, jawaban berbukti, keputusan, dan catatan tersimpan di `data/<proyek>/memory.db`.
+
+## Pengembangan
+
+```
+uv venv && uv pip install -e . pytest
+.venv/bin/python run.py -p uji     # atau: python -m skripsi_ai
+.venv/bin/python -m pytest -q tests
+uv build                            # hasil di dist/
+```
+
+Kode ada di `src/skripsi_ai/`. Modul tunggal bisa dijalankan: `python -m skripsi_ai.ingest -p skripsi`.

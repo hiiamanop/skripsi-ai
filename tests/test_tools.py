@@ -1,15 +1,15 @@
 import io
 import json
 
-from grabbers import detect_source
+from skripsi_ai.grabbers import detect_source
 
 def test_bibtex_helpers():
-    from bibtex import keywords, key
+    from skripsi_ai.bibtex import keywords, key
     assert keywords("2021_123_A Study of Graph Neural Networks for Traffic.pdf") == "study graph neural networks traffic"
     assert key("Ada Lovelace and Alan Turing", "2021", "A Study") == "Lovelace2021A"
 
 def test_crossref_lookup(monkeypatch):
-    import crossref
+    from skripsi_ai import crossref
     item = {"DOI": "10.1/x", "title": ["Graph neural networks for traffic"], "author": [{"given": "Ada", "family": "Lovelace"}],
             "container-title": ["J"], "published": {"date-parts": [[2021]]}, "URL": "http://x"}
     body = {"message": {"items": [item]}}
@@ -25,7 +25,7 @@ def test_detect_source():
     assert detect_source("https://openalex.org/works?search=x") == "openalex"
 
 def test_openalex_params():
-    from openalex_grab import build_params, pdf_urls, fname
+    from skripsi_ai.openalex_grab import build_params, pdf_urls, fname
     p = build_params("https://openalex.org/works?search=trust&filter=from_publication_date%3A2021-01-01")
     assert p["search"] == "trust" and "is_oa" in p["filter"]
     q = build_params("raw query")
@@ -41,7 +41,7 @@ def test_openalex_params():
 
 def test_project_paths_and_validation(monkeypatch):
     import pytest
-    import config
+    from skripsi_ai import config
     monkeypatch.setattr(config, "PROJECTS_DIR", "/tmp/x")
     p = config.Project("skripsi-a")
     assert p.papers == "/tmp/x/skripsi-a/papers" and p.chroma == "/tmp/x/skripsi-a/chroma"
@@ -50,13 +50,13 @@ def test_project_paths_and_validation(monkeypatch):
             config.Project(bad)
 
 def test_project_ensure_isolated(tmp_path, monkeypatch):
-    import config
+    from skripsi_ai import config
     monkeypatch.setattr(config, "PROJECTS_DIR", str(tmp_path))
     config.Project("a").ensure(); config.Project("b").ensure()
     assert (tmp_path / "a/papers").is_dir() and (tmp_path / "b/papers").is_dir()
 
 def test_scopus_helpers():
-    from scopus_grab import scopus_query, entry_dois
+    from skripsi_ai.scopus_grab import scopus_query, entry_dois
     assert scopus_query("graph neural") == "(TITLE-ABS-KEY(graph neural)) AND OPENACCESS(1)"
     assert scopus_query("AUTHOR-NAME(Smith)") == "(AUTHOR-NAME(Smith)) AND OPENACCESS(1)"
     assert scopus_query("TITLE(x) AND OPENACCESS(1)") == "TITLE(x) AND OPENACCESS(1)"
@@ -64,7 +64,7 @@ def test_scopus_helpers():
     assert entry_dois(es) == ["10.1/a"]
 
 def test_papermeta(tmp_path):
-    import papermeta as pm
+    from skripsi_ai import papermeta as pm
     w = {"display_name": "T", "publication_year": 2021, "doi": "https://doi.org/10.1/X",
          "authorships": [{"author": {"display_name": "Ada L"}}, {"author": {"display_name": "Alan T"}}],
          "abstract_inverted_index": {"hello": [0], "world": [1]}}
@@ -80,7 +80,8 @@ def test_papermeta(tmp_path):
     assert pm.resolve(pdf)["title"] == "T"  # sidecar menang, tanpa jaringan
 
 def test_ingest_one_metadata_pages_batches(tmp_path, monkeypatch):
-    import chromadb, config, ingest
+    import chromadb
+    from skripsi_ai import config, ingest
     calls = []
     monkeypatch.setattr(ingest.llm, "embed", lambda ts: calls.append(len(ts)) or [[1.0, 0.0]] * len(ts))
     monkeypatch.setattr(config, "EMBED_BATCH", 2)
@@ -92,7 +93,8 @@ def test_ingest_one_metadata_pages_batches(tmp_path, monkeypatch):
     assert sorted(m["page"] for m in got) == [0, 1, 3] and all(m["title"] == "T" and m["year"] == 2021 for m in got)
 
 def test_ingest_failure_leaves_nothing(tmp_path, monkeypatch):
-    import chromadb, ingest
+    import chromadb
+    from skripsi_ai import ingest
     def boom(ts): raise RuntimeError("api")
     monkeypatch.setattr(ingest.llm, "embed", boom)
     col = chromadb.PersistentClient(path=str(tmp_path)).get_or_create_collection("papers")
@@ -103,7 +105,8 @@ def test_ingest_failure_leaves_nothing(tmp_path, monkeypatch):
     assert col.count() == 0
 
 def test_store_guards_embed_model(tmp_path, monkeypatch):
-    import pytest, config, store
+    import pytest
+    from skripsi_ai import config, store
     monkeypatch.setattr(config, "PROJECTS_DIR", str(tmp_path))
     p = config.Project("a").ensure()
     col = store.open_collection(p, create=True)
@@ -115,7 +118,7 @@ def test_store_guards_embed_model(tmp_path, monkeypatch):
     assert store.open_collection(p, create=True, reset=True).count() == 0
 
 def test_evidence_cite_and_select():
-    import evidence as ev
+    from skripsi_ai import evidence as ev
     assert ev.cite({"authors": "Fupeng Wei and Xing Liu and L Pan", "year": 2025, "page": 6}) == "Wei dkk. 2025, hlm. 6"
     assert ev.cite({"authors": "Ada Lovelace and Alan Turing", "year": 2021, "page": 0}) == "Lovelace dan Turing 2021, abstrak"
     assert ev.cite({"authors": "", "year": 0, "page": 3, "title": "Judul X", "file": "f.pdf"}) == "Judul X t.t., hlm. 3"
@@ -128,7 +131,8 @@ def test_evidence_cite_and_select():
 
 def test_ask_refuses_without_evidence(tmp_path, monkeypatch):
     import pytest
-    import json, config, rag, store
+    import json
+    from skripsi_ai import config, rag, store
     monkeypatch.setattr(config, "PROJECTS_DIR", str(tmp_path))
     p = config.Project("a").ensure()
     col = store.open_collection(p, create=True)
@@ -143,7 +147,7 @@ def test_ask_refuses_without_evidence(tmp_path, monkeypatch):
     monkeypatch.setattr(rag.llm, "chat", lambda m: (raw, "fake"))
     r = rag.ask(p, "apa saja")
     assert r["status"] == "unverified" and r["claims"][0]["reason"] == "kutipan terlalu pendek"
-    import memory
+    from skripsi_ai import memory
     m = memory.Memory(p)
     rows = m.db.execute("select id, status from answers order by id").fetchall()
     assert [x["status"] for x in rows] == ["no_evidence", "unverified"] and r["answer_id"] == rows[1]["id"]

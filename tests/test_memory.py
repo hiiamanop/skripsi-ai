@@ -3,8 +3,8 @@ import stat
 
 import pytest
 
-import config
-from memory import Memory
+from skripsi_ai import config
+from skripsi_ai.memory import Memory
 
 
 @pytest.fixture

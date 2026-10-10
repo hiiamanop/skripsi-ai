@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """Export literature.csv proyek -> references.bib (BibTeX).
 
-Pakai:  .venv/bin/python tools/export_bib.py [-p proyek]
+Pakai:  python -m skripsi_ai.export_bib [-p proyek]
 """
 import argparse
 import csv
 import re
 
-import config
+from . import config
 
 a = argparse.ArgumentParser()
 config.add_project_arg(a)

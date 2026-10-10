@@ -1,7 +1,7 @@
 """Buka collection Chroma proyek: jarak cosine, model embedding dicatat dan dijaga konsisten."""
 import chromadb
 
-import config
+from . import config
 
 
 def open_collection(proj, create=False, reset=False):

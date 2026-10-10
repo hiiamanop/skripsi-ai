@@ -4,17 +4,17 @@
 Tiap chunk membawa metadata paper (judul, penulis, tahun, DOI) dan nomor halaman.
 Abstrak (bila ada) jadi chunk tambahan dengan page=0.
 
-Pakai:  python3 tools/ingest.py [-p proyek] [-n maks] [--reindex]
+Pakai:  python -m skripsi_ai.ingest [-p proyek] [-n maks] [--reindex]
 """
 import argparse
 import os
 
 from pypdf import PdfReader
 
-import config
-import llm
-import papermeta
-import store
+from . import config
+from . import llm
+from . import papermeta
+from . import store
 
 
 def chunks(text, size=config.CHUNK_SIZE, overlap=config.CHUNK_OVERLAP):

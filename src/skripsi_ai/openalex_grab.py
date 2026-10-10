@@ -13,9 +13,9 @@ import time
 import urllib.parse
 import urllib.request
 
-import config
-import papermeta
-from grabbers import BaseGrabber
+from . import config
+from . import papermeta
+from .grabbers import BaseGrabber
 
 API = "https://api.openalex.org/works"
 UA = "SkripsiAI/1.0 (mailto:research@example.com)"
