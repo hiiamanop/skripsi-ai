@@ -14,6 +14,8 @@ sys.path.insert(0, f"{ROOT}/tools")
 try:
     import chromadb  # noqa: F401
     import pypdf  # noqa: F401
+    import prompt_toolkit  # noqa: F401
+    import rich  # noqa: F401
 except ImportError as e:
     venv = f"{ROOT}/.venv/bin/python"
     if os.path.exists(venv) and os.path.realpath(sys.prefix) != os.path.realpath(f"{ROOT}/.venv"):
@@ -26,10 +28,7 @@ import argparse  # noqa: E402
 import agent  # noqa: E402
 import config  # noqa: E402
 import memory  # noqa: E402
-
-
-def confirm(text):
-    return input(f"\n? {text} [y/N] ").strip().lower() in ("y", "ya")
+import tui  # noqa: E402
 
 
 def main():
@@ -41,10 +40,10 @@ def main():
     a = a.parse_args()
     proj = config.project_from(a).ensure()
     mem = memory.Memory(proj)
+    ui = tui.UI()
 
     if a.sesi:
-        for s in mem.sessions():
-            print(f"#{s['id']} {s['started'][:16]} ({s['n']} pesan) {s['title']}\n    {s['summary']}")
+        ui.sesi(mem.sessions())
         return
 
     sid, history = None, []
@@ -58,37 +57,51 @@ def main():
 
     wm = mem.working_memory()
     system = agent.SYSTEM + (f"\n\nMEMORI PROYEK '{proj.name}':\n{wm}" if wm else "")
-    ag = agent.Agent(mem, sid, agent.build_tools(proj, mem, sid), system, confirm=confirm, history=history)
-    print(f"Proyek '{proj.name}', sesi #{sid}" + (f" (dilanjutkan, {len(history)} pesan dimuat)" if history else "")
-          + ". Ketik /keluar untuk selesai.")
+    tools = agent.build_tools(proj, mem, sid, out=ui.show_result)
+    ag = agent.Agent(mem, sid, tools, system, confirm=ui.confirm, history=history, on_tool=ui.tool_call)
+    by_name = {t.name: t for t in tools}
+    ask = tui.make_prompt(f"{proj.dir}/.history")
+    ui.banner(proj, sid, len(history))
     try:
         while True:
             try:
-                line = input("\nanda> ").strip()
+                line = ask().strip()
             except EOFError:
                 break
             if not line:
                 continue
-            if line in ("/keluar", "/exit", "exit"):
+            handled = tui.handle_command(line, ui, proj, mem, by_name)
+            if handled == "keluar":
                 break
+            if handled:
+                continue
             try:
-                reply = ag.turn(line)
+                ui.start_thinking()
+                try:
+                    reply = ag.turn(line)
+                finally:
+                    ui.stop_thinking()
             except KeyboardInterrupt:
-                print("\n(dibatalkan)")
+                ui.notice("(dibatalkan)")
                 continue
             except Exception as e:
-                print(f"gagal: {e}")
+                ui.error(f"gagal: {e}")
                 continue
             if reply:
-                print(f"\n{reply}")
+                ui.reply(reply)
     except KeyboardInterrupt:
         print()
     finally:
         try:
-            s = agent.summarize_session(mem, sid)
-            print(f"\nRingkasan sesi tersimpan: {s}" if s else "")
+            ui.start_thinking()
+            try:
+                s = agent.summarize_session(mem, sid)
+            finally:
+                ui.stop_thinking()
+            if s:
+                ui.summary(s)
         except Exception as e:
-            print(f"\n(ringkasan sesi gagal: {str(e)[:80]}; percakapan tetap tersimpan)")
+            ui.notice(f"(ringkasan sesi gagal: {str(e)[:80]}; percakapan tetap tersimpan)")
         mem.close()
 
 
