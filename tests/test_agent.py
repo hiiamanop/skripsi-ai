@@ -165,3 +165,9 @@ def test_cari_dan_unduh_semua_routes_ieee_then_openalex_without_ieee(env, monkey
     monkeypatch.setattr(agent, "IeeeGrabber", lambda: Fake("ieee", fail=True))
     out = fn("gnn")  # IEEE gagal, OpenAlex tetap jalan
     assert "ieee: GAGAL (diblokir)" in out and "openalex: baru=2" in out and [x[0] for x in seen] == ["ieee", "openalex"]
+
+
+def test_scope_rule_stays_in_system_prompt():
+    # perilaku sebenarnya diukur dengan tests/eval_scope.py (LLM sungguhan); ini cuma menjaga aturannya tak terhapus
+    assert agent.REFUSAL in agent.SYSTEM and agent.SYSTEM.index("0. LINGKUP") < agent.SYSTEM.index("1. Pertanyaan")
+    assert "JANGAN tolak" in agent.SYSTEM
