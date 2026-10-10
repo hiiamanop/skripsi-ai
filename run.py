@@ -11,6 +11,16 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 os.chdir(ROOT)  # .env dan ./data dibaca relatif ke root repo
 sys.path.insert(0, f"{ROOT}/tools")
 
+try:
+    import chromadb  # noqa: F401
+    import pypdf  # noqa: F401
+except ImportError as e:
+    venv = f"{ROOT}/.venv/bin/python"
+    if os.path.exists(venv) and os.path.realpath(sys.prefix) != os.path.realpath(f"{ROOT}/.venv"):
+        os.execv(venv, [venv, *sys.argv])  # pakai venv proyek, bukan python yang kebetulan aktif
+    sys.exit(f"Dependensi belum terpasang ({e.name}). Jalankan:\n"
+             f"  python -m venv .venv && .venv/bin/pip install -r requirements.txt")
+
 import argparse  # noqa: E402
 
 import agent  # noqa: E402
