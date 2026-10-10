@@ -4,12 +4,24 @@ version = "0.1.0"
 description = "Research partner untuk skripsi/tesis/disertasi: kumpulkan artikel, index ke vector DB, tanya dan putuskan berdasarkan bukti."
 readme = "README.md"
 requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Ahmad" }]
+keywords = ["research", "thesis", "rag", "literature-review"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Intended Audience :: Education",
+    "Topic :: Education",
+]
 dependencies = [
     "chromadb",
     "pypdf",
     "prompt_toolkit",
     "rich",
 ]
+
+[project.urls]
+Repository = "https://github.com/hiiamanop/skripsi-ai"
 
 [project.scripts]
 skripsi-ai = "skripsi_ai.cli:main"
