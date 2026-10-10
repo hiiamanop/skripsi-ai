@@ -9,12 +9,12 @@ import os
 import sys
 import tempfile
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "src"))
 os.chdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 
-import agent  # noqa: E402
-import config  # noqa: E402
-import memory  # noqa: E402
+from skripsi_ai import agent  # noqa: E402
+from skripsi_ai import config  # noqa: E402
+from skripsi_ai import memory  # noqa: E402
 
 CASES = [  # (jenis, pesan)
     ("luar", "resep nasi goreng yang enak?"),

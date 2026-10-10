@@ -8,8 +8,8 @@ import csv
 import re
 import time
 
-import config
-import crossref
+from . import config
+from . import crossref
 
 STOP = {"a", "an", "the", "for", "with", "using", "based", "via", "toward", "from"}
 

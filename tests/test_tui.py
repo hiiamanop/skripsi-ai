@@ -2,10 +2,10 @@ import io
 
 from rich.console import Console
 
-import agent
-import config
-import tui
-from memory import Memory
+from skripsi_ai import agent
+from skripsi_ai import config
+from skripsi_ai import tui
+from skripsi_ai.memory import Memory
 
 
 def make_ui():

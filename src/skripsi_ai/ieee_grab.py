@@ -7,9 +7,9 @@ Stdlib only.
 import argparse, http.cookiejar, json, os, re, sys, time
 import urllib.error, urllib.parse, urllib.request
 
-import config
-import papermeta
-from grabbers import BaseGrabber
+from . import config
+from . import papermeta
+from .grabbers import BaseGrabber
 
 BASE = "https://ieeexplore.ieee.org"
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/124 Safari/537.36"

@@ -8,14 +8,14 @@ import os
 from dataclasses import dataclass
 from typing import Callable
 
-import ingest
-import llm
-import papermeta
-import rag
-import store
-from ieee_grab import IeeeGrabber
-from openalex_grab import OpenAlexGrabber
-from scopus_grab import ScopusGrabber
+from . import ingest
+from . import llm
+from . import papermeta
+from . import rag
+from . import store
+from .ieee_grab import IeeeGrabber
+from .openalex_grab import OpenAlexGrabber
+from .scopus_grab import ScopusGrabber
 
 MAX_TOOL_CALLS = 8      # per giliran pengguna
 MAX_TOOL_CHARS = 6000   # hasil tool yang dikirim ke LLM (tersimpan utuh di DB)

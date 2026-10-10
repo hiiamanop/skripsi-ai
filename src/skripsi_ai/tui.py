@@ -11,13 +11,13 @@ from rich.panel import Panel
 from rich.table import Table
 from rich.text import Text
 
-import config
+from . import config
 
 HELP = [("/bantuan", "daftar perintah"),
         ("/koleksi", "paper di proyek dan status index"),
         ("/memori", "catatan dan keputusan yang tersimpan"),
         ("/riwayat <kata>", "cari di percakapan, jawaban, keputusan, catatan lama"),
-        ("/sesi", "daftar sesi (lanjutkan dengan: python run.py --resume ID)"),
+        ("/sesi", "daftar sesi (lanjutkan dengan: skripsi-ai --resume ID)"),
         ("/proyek", "daftar proyek di folder data"),
         ("/keluar", "selesai; ringkasan sesi dibuat otomatis")]
 EXIT = {"/keluar", "/exit", "exit"}

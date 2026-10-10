@@ -1,5 +1,0 @@
-chromadb
-pypdf
-pytest
-prompt_toolkit
-rich

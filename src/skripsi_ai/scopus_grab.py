@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Cari artikel open access via Scopus (termasuk Elsevier), unduh PDF-nya via OpenAlex per DOI.
 
-Pakai:  .venv/bin/python tools/scopus_grab.py "<teks | query Scopus>" [-p proyek] [-n maks] [-d delay]
+Pakai:  python -m skripsi_ai.scopus_grab "<teks | query Scopus>" [-p proyek] [-n maks] [-d delay]
 Perlu ELSEVIER_API_KEY. Key non-institusi hanya boleh Scopus Search (25 hasil/halaman, tanpa abstrak,
 tanpa full text Elsevier); PDF diambil dari lokasi OA di OpenAlex, sekitar 60% artikel punya.
 """
@@ -14,10 +14,10 @@ import time
 import urllib.parse
 import urllib.request
 
-import config
-import openalex_grab as oa
-import papermeta
-from grabbers import BaseGrabber
+from . import config
+from . import openalex_grab as oa
+from . import papermeta
+from .grabbers import BaseGrabber
 
 API = "https://api.elsevier.com/content/search/scopus"
 PAGE = 25  # batas count untuk key standar
