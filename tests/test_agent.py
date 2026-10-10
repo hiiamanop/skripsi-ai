@@ -135,7 +135,39 @@ def test_real_tools_decision_requires_answer_and_confirm(env):
     with pytest.raises(ValueError):
         tools["catat_keputusan"].fn("pakai X", 999)
     with pytest.raises(ValueError):
-        tools["cari_dan_unduh"].fn("sumber_palsu", "q")
+        tools["cari_dan_unduh"].fn("q", sumber="sumber_palsu")
     assert tools["daftar_koleksi"].fn()["total_pdf"] == 0
     tools["catat_catatan"].fn("fokus NYT")
     assert "fokus NYT" in mem.working_memory()
+
+
+def test_cari_dan_unduh_semua_routes_ieee_then_openalex_without_ieee(env, monkeypatch):
+    proj, mem, sid = env
+    seen = []
+
+    class Fake:
+        def __init__(self, name, fail=False):
+            self.name, self.fail = name, fail
+
+        def run(self, q, out, n, **kw):
+            seen.append((self.name, q, n, kw))
+            if self.fail:
+                raise RuntimeError("diblokir")
+            return 2, 1, 0
+
+    monkeypatch.setattr(agent, "IeeeGrabber", lambda: Fake("ieee"))
+    monkeypatch.setattr(agent, "OpenAlexGrabber", lambda: Fake("openalex"))
+    fn = {t.name: t for t in agent.build_tools(proj, mem, sid)}["cari_dan_unduh"].fn
+    out = fn("gnn", n=5)
+    assert seen == [("ieee", "gnn", 5, {}), ("openalex", "gnn", 5, {"skip_ieee": True})]
+    assert "ieee: baru=2" in out and "openalex: baru=2" in out
+    seen.clear()
+    monkeypatch.setattr(agent, "IeeeGrabber", lambda: Fake("ieee", fail=True))
+    out = fn("gnn")  # IEEE gagal, OpenAlex tetap jalan
+    assert "ieee: GAGAL (diblokir)" in out and "openalex: baru=2" in out and [x[0] for x in seen] == ["ieee", "openalex"]
+
+
+def test_scope_rule_stays_in_system_prompt():
+    # perilaku sebenarnya diukur dengan tests/eval_scope.py (LLM sungguhan); ini cuma menjaga aturannya tak terhapus
+    assert agent.REFUSAL in agent.SYSTEM and agent.SYSTEM.index("0. LINGKUP") < agent.SYSTEM.index("1. Pertanyaan")
+    assert "JANGAN tolak" in agent.SYSTEM
